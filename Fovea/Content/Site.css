@@ -22,3 +22,23 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.form-subscribe {
+    background-color: #2ecc71;
+    padding: 20px;
+    width: 400px;
+    margin-bottom: 20px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #ecf0f1;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    font-size: 1em;
+    font-weight: 100;
+}
+
+subscriptionDiv {
+    width: 500px;
+    margin: auto;
+}
