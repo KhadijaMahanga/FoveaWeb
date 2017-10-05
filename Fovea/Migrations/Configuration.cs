@@ -6,12 +6,11 @@ namespace Fovea.Migrations
     using System.Linq;
     using Fovea.Models;
 
-
     internal sealed class Configuration : DbMigrationsConfiguration<Fovea.Models.FoveaContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(Fovea.Models.FoveaContext context)
@@ -29,11 +28,11 @@ namespace Fovea.Migrations
             //    );
             //
             context.Businesses.AddOrUpdate(
-               b => b.Id,
-               new Business() { Id = 1, Name = "ABC Company", BusinessCategoryId = 2, SellerId = 2, BusinessSectorId = 3, RegistrationNumber = "00023985", Country = "South Africa", City = "Capetown", RegistrationDate = new DateTime(2015, 01, 03) },
-               new Business() { Id = 2, Name = "Fashionista", BusinessCategoryId = 2, SellerId = 2, BusinessSectorId = 3, RegistrationNumber = "00023985", Country = "South Africa", City = "Capetown", RegistrationDate = new DateTime(2015, 01, 03) },
-               new Business() { Id = 3, Name = "D Saloon", BusinessCategoryId = 2, SellerId = 2, BusinessSectorId = 3, RegistrationNumber = "00023985", Country = "South Africa", City = "Capetown", RegistrationDate = new DateTime(2015, 01, 03) }
-               );
+                b => b.Id,
+                new Business() { Id = 1, Name = "ABC Company", BusinessCategoryId = 2, SellerId = 2, BusinessSectorId = 3, RegistrationNumber = "00023985", Country = "South Africa", City = "Capetown", RegistrationDate = new DateTime(2015, 01, 03) },
+                new Business() { Id = 2, Name = "Fashionista", BusinessCategoryId = 2, SellerId = 2, BusinessSectorId = 3, RegistrationNumber = "00023985", Country = "South Africa", City = "Capetown", RegistrationDate = new DateTime(2015, 01, 03) },
+                new Business() { Id = 3, Name = "D Saloon", BusinessCategoryId = 2, SellerId = 2, BusinessSectorId = 3, RegistrationNumber = "00023985", Country = "South Africa", City = "Capetown", RegistrationDate = new DateTime(2015, 01, 03) }
+                );
             context.BusinessCategories.AddOrUpdate(
                 x => x.Id,
                 new BusinessCategory() { Id = 1, Name = "Medium-sized" },

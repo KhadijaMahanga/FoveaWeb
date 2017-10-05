@@ -38,5 +38,7 @@ namespace Fovea.Models
         public System.Data.Entity.DbSet<Fovea.Models.Subscription> Subscriptions { get; set; }
 
         public System.Data.Entity.DbSet<Fovea.Models.BusinessSector> BusinessSectors { get; set; }
+
+        public System.Data.Entity.DbSet<Fovea.Models.BusinessSummaryDTO> BusinessSummaryDTOes { get; set; }
     }
 }

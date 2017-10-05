@@ -13,7 +13,7 @@ namespace Fovea.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201710040715342_InitialCreate"; }
+            get { return "201710050847588_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

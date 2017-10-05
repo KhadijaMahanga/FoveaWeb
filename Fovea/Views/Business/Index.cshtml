@@ -1,7 +1,15 @@
-﻿
+﻿@model IEnumerable<Fovea.Models.BusinessSummaryDTO>
+
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Business For Sale";
 }
 
-<h2>Index</h2>
+<h2>Business for Sale</h2>
+    @foreach (var business in Model)
+    {
+        <div><h4>@business.Name</h4>
+              <p>@business.BusinessSectorName</p>
+                <p>@business.Province</p>
+        </div>
+    }
 
