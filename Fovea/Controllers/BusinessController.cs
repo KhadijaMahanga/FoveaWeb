@@ -30,7 +30,8 @@ namespace Fovea.Controllers
 
         //GET: Business/id
         public ActionResult GetBusiness(int id) {
-            return View();
+            var business = db.Businesses.Find(id);
+            return View(business);
         }
 
     }
