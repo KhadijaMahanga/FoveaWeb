@@ -25,6 +25,7 @@ namespace Fovea.Models
         public string RegistrationNumber { get; set; }
         public decimal Price { get; set; }
         public string Description { get; set; }
+        public int Likes { get; set; }
         //Foreign Key
         public int SellerId { get; set; }
         public int BusinessCategoryId { get; set; }

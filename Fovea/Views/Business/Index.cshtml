@@ -3,13 +3,26 @@
 @{
     ViewBag.Title = "Business For Sale";
 }
-
-<h2>Business for Sale</h2>
-    @foreach (var business in Model)
-    {
-        <div><h4>@business.Name</h4>
-              <p>@business.BusinessSectorName</p>
+<div class="row">
+    <div class="col-lg-4">
+        <h2>Search Businesses</h2>
+    </div>
+    <div class="col-lg-8">
+        <h2>Business for Sale</h2>
+        @foreach (var business in Model)
+        {
+            <div>
+                <h4>@business.Name</h4>
+                <p>@business.BusinessSectorName</p>
                 <p>@business.Province</p>
-        </div>
-    }
-
+            </div>
+            <a href="#" data-id="1"><i class="glyphicon glyphicon-heart"></i><span>@business.Likes</span></a>
+        <!-- LinkedIn Share Button -->
+            <script src="//platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
+            <script type="IN/Share" data-counter="right">
+            </script>
+        <!-- Facebook Like Button -->
+            <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.mysite.com%2FQuiz%2FTake%2F193&amp;width=50&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px; width=50px;" allowTransparency="true"></iframe>
+        }
+    </div>
+</div>

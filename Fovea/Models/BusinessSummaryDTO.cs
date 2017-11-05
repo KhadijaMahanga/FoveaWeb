@@ -13,6 +13,7 @@ namespace Fovea.Models
         public string City { get; set; }
         public decimal Price { get; set; }
         public string BusinessSectorName { get; set; }
+        public int Likes { get; set; }
 
     }
 }

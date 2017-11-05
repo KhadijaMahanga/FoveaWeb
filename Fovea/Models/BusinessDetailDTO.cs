@@ -18,6 +18,7 @@ namespace Fovea.Models
         public string AdressLine2 { get; set; }
         public string PostalCode { get; set; }
         public string City { get; set; }
+        public int Likes { get; set; }
 
         [Column(TypeName = "datetime2")]
         public DateTime RegistrationDate { get; set; }

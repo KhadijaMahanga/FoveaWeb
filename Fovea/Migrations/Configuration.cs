@@ -29,9 +29,9 @@ namespace Fovea.Migrations
             //
             context.Businesses.AddOrUpdate(
                 b => b.Id,
-                new Business() { Id = 1, Name = "ABC Company", BusinessCategoryId = 2, SellerId = 2, BusinessSectorId = 3, RegistrationNumber = "00023985", Country = "South Africa", City = "Capetown", RegistrationDate = new DateTime(2015, 01, 03) },
-                new Business() { Id = 2, Name = "Fashionista", BusinessCategoryId = 2, SellerId = 2, BusinessSectorId = 3, RegistrationNumber = "00023985", Country = "South Africa", City = "Capetown", RegistrationDate = new DateTime(2015, 01, 03) },
-                new Business() { Id = 3, Name = "D Saloon", BusinessCategoryId = 2, SellerId = 2, BusinessSectorId = 3, RegistrationNumber = "00023985", Country = "South Africa", City = "Capetown", RegistrationDate = new DateTime(2015, 01, 03) }
+                new Business() { Id = 1, Name = "ABC Company", BusinessCategoryId = 2, SellerId = 2, BusinessSectorId = 3, RegistrationNumber = "00023985", Country = "South Africa", City = "Capetown", Likes=0, RegistrationDate = new DateTime(2015, 01, 03) },
+                new Business() { Id = 2, Name = "Fashionista", BusinessCategoryId = 2, SellerId = 2, BusinessSectorId = 3, RegistrationNumber = "00023985", Country = "South Africa", City = "Capetown", Likes=1, RegistrationDate = new DateTime(2015, 01, 03) },
+                new Business() { Id = 3, Name = "D Saloon", BusinessCategoryId = 2, SellerId = 2, BusinessSectorId = 3, RegistrationNumber = "00023985", Country = "South Africa", City = "Capetown", Likes=0, RegistrationDate = new DateTime(2015, 01, 03) }
                 );
             context.BusinessCategories.AddOrUpdate(
                 x => x.Id,

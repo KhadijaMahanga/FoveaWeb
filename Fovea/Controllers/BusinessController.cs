@@ -23,7 +23,8 @@ namespace Fovea.Controllers
                                  Province = b.Province,
                                  City = b.City,
                                  Price = b.Price,
-                                 BusinessSectorName = b.BusinessSector.Name
+                                 BusinessSectorName = b.BusinessSector.Name,
+                                 Likes = b.Likes
                              }).ToList();
             return View(businessesSummary);
         }
