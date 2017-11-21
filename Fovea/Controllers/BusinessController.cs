@@ -15,7 +15,7 @@ namespace Fovea.Controllers
         // GET: Business
         public ActionResult Index()
         {
-            var businesses = db.Businesses.Include("BusinessSector").ToList();
+            var businesses = db.Businesses.Include("BusinessSector").Include("BusinessCategory").ToList();
             var businessesSummary = businesses.Select(b => new BusinessSummaryDTO
                              {
                                  Id = b.Id,
@@ -24,15 +24,24 @@ namespace Fovea.Controllers
                                  City = b.City,
                                  Price = b.Price,
                                  BusinessSectorName = b.BusinessSector.Name,
+                                 BusinessCategoryName = b.BusinessCategory.Name,
+                                 BusinessCategoryImg = b.BusinessCategory.Img,
+                                 Description = b.Description,
                                  Likes = b.Likes
                              }).ToList();
             return View(businessesSummary);
         }
 
         //GET: Business/id
-        public ActionResult GetBusiness(int id) {
+        public ActionResult Details(int id) {
             var business = db.Businesses.Find(id);
             return View(business);
+        }
+
+        [ActionName("sell-a-business")]
+        public ActionResult SellABusiness()
+        {
+            return View();
         }
 
     }

@@ -116,8 +116,12 @@
     <Reference Include="SendGrid, Version=9.8.0.0, Culture=neutral, PublicKeyToken=4f047e93159395ca, processorArchitecture=MSIL">
       <HintPath>..\packages\Sendgrid.9.9.0\lib\net452\SendGrid.dll</HintPath>
     </Reference>
+    <Reference Include="Stripe.net, Version=11.7.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stripe.net.11.7.1\lib\net45\Stripe.net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
@@ -233,6 +237,14 @@
     <Compile Include="Migrations\201711051928060_AddLikes.Designer.cs">
       <DependentUpon>201711051928060_AddLikes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711190831588_EditCategory.cs" />
+    <Compile Include="Migrations\201711190831588_EditCategory.Designer.cs">
+      <DependentUpon>201711190831588_EditCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711190846392_EditCategory1.cs" />
+    <Compile Include="Migrations\201711190846392_EditCategory1.Designer.cs">
+      <DependentUpon>201711190846392_EditCategory1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
@@ -254,20 +266,53 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\bootstrap-theme.css" />
+    <Content Include="Content\css\bootstrap-theme.min.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\business.css" />
+    <Content Include="Content\css\et-line\et-line.css" />
+    <Content Include="Content\css\et-line\index.html" />
+    <Content Include="Content\css\fonts\font-awesome.css" />
+    <Content Include="Content\css\fonts\font-awesome.min.css" />
+    <Content Include="Content\css\fonts\font.css" />
+    <Content Include="Content\css\fonts\fontawesome-webfont3e6e-2.html" />
+    <Content Include="Content\css\fonts\fontawesome-webfont3e6e-3.html" />
+    <Content Include="Content\css\fonts\fontawesome-webfont3e6e-4.html" />
+    <Content Include="Content\css\fonts\fontawesome-webfont3e6e-5.html" />
+    <Content Include="Content\css\fonts\fontawesome-webfont3e6e.html" />
+    <Content Include="Content\css\fonts\fontawesome-webfontd41d.html" />
+    <Content Include="Content\css\fonts\glyphicons-halflings-regular-2.html" />
+    <Content Include="Content\css\fonts\glyphicons-halflings-regular-3.html" />
+    <Content Include="Content\css\fonts\glyphicons-halflings-regular-4.html" />
+    <Content Include="Content\css\fonts\glyphicons-halflings-regular-5.html" />
+    <Content Include="Content\css\fonts\glyphicons-halflings-regular.html" />
+    <Content Include="Content\css\fonts\glyphicons-halflings-regulard41d.html" />
+    <Content Include="Content\css\fonts\index.html" />
+    <Content Include="Content\css\gallery\index.html" />
+    <Content Include="Content\css\gallery\magnific-popup.css" />
+    <Content Include="Content\css\owl-carousel\index.html" />
+    <Content Include="Content\css\owl-carousel\owl.carousel.css" />
+    <Content Include="Content\css\owl-carousel\owl.video.play.html" />
     <Content Include="Content\img\banner-bg.jpg" />
+    <Content Include="Content\img\Category\agriculture.gif" />
+    <Content Include="Content\img\Category\food.gif" />
+    <Content Include="Content\img\Category\franchiseResales.gif" />
+    <Content Include="Content\img\Category\leisure.gif" />
+    <Content Include="Content\img\Category\manufacturing.gif" />
+    <Content Include="Content\img\Category\retail.gif" />
+    <Content Include="Content\img\Category\services.gif" />
+    <Content Include="Content\img\corporate_1.jpg" />
     <Content Include="Content\img\dog.png" />
     <Content Include="Content\img\intro-bg.jpg" />
     <Content Include="Content\img\ipad.png" />
     <Content Include="Content\img\phones.png" />
-    <Content Include="Content\landing-page.css" />
+    <Content Include="Content\css\landing-page.css" />
+    <Content Include="Content\img\workwithus.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\css\Site.css" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -276,10 +321,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\css\bootstrap.min.css.map" />
+    <Content Include="Content\css\bootstrap.css.map" />
+    <Content Include="Content\css\bootstrap-theme.min.css.map" />
+    <Content Include="Content\css\bootstrap-theme.css.map" />
     <None Include="Properties\PublishProfiles\FoveaWeb - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -314,7 +359,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_SubscribePartial.cshtml" />
     <Content Include="Views\Subscribe\Index.cshtml" />
-    <Content Include="Views\Business\View.cshtml" />
+    <Content Include="Views\Business\Details.cshtml" />
     <Content Include="Views\Business\Index.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\UsersAdmin\Index.cshtml" />
@@ -354,9 +399,12 @@
     <Content Include="Scripts\jquery-3.2.1.min.map" />
     <Content Include="Views\Account\VerifyCode.cshtml" />
     <Content Include="Views\Account\ForgotPasswordFailure.cshtml" />
+    <Content Include="Views\Shared\_BusinessListingCard.cshtml" />
+    <Content Include="Views\Business\Sell-A-Business.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\img\Business\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -367,6 +415,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711051928060_AddLikes.resx">
       <DependentUpon>201711051928060_AddLikes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711190831588_EditCategory.resx">
+      <DependentUpon>201711190831588_EditCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711190846392_EditCategory1.resx">
+      <DependentUpon>201711190846392_EditCategory1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,0 +1,59 @@
+﻿@model Fovea.Models.BusinessSummaryDTO
+
+<div class="listing-card-wrap">
+    <dl class="listing-card">
+        <dt class="listing-thumb">
+            <img src="../Content/Shared/images/CategoryImages/services.gif" alt="" />
+
+            <!--<span class="new-advert ribbon-wrapper"><span class="ribbon"><span>Updated</span></span></span>-->
+
+            <span class="tenure listing-tag">@Model.BusinessCategoryName</span>
+        </dt>
+
+        <dt class="business-title">
+            <a href=@("/business/" + @Model.Id)>@Model.Name</a>
+        </dt>
+
+        <dd class="location">@Model.Province</dd>
+
+        <dd class="financial">
+            <ul>
+                <li>
+                    <span class="financial-label">Asking Price:</span>
+                    $125,000        <span class="currency-code">(USD)</span>
+                </li>
+                <!--
+                <li>
+                    <span class="financial-label">Sales Revenue:</span>
+                    $228,000
+                    <span class="currency-code">(USD)</span>
+
+                </li>
+                <li>
+                    <span class="financial-label">Cash Flow:</span>
+                    $90,000
+                    <span class="currency-code">(USD)</span>
+
+                </li>
+                    -->
+            </ul>
+        </dd>
+
+        <dd class="description">
+            @Model.Description
+
+            <a href="" rel="nofollow" class="details-link">More details »</a>
+        </dd>
+    </dl>
+
+    <ul class="listing-options">
+        <li>
+            <a rel="nofollow" class="cta cta-orange contact" href="">
+                Contact seller
+            </a>
+        </li>
+    </ul>
+
+</div>
+
+

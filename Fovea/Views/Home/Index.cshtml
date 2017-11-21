@@ -1,23 +1,93 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<header>
+    <div class="intro-header">
+        <div class="container">
+            <div class="intro-message">
+                <h1></h1>
+                <h3>Buy and Sell your business here</h3>
+                <hr class="intro-divider">
+                <ul class="list-inline intro-social-buttons">
+                    <li class="list-inline-item">
+                        <a href="/sell-a-business" class="btn btn-primary btn-lg">Sell a business</a>
+                    </li>
 
-<div class="intro-header">
-    <div class="container">
-        <div class="intro-message">
-            <h1></h1>
-            <h3>Buy and Sell your business here</h3>
-            <hr class="intro-divider">
-            <ul class="list-inline intro-social-buttons">
-                <li class="list-inline-item">
-                    <a href="/sell-a-business" class="btn btn-primary btn-lg">Sell a business</a>
-                </li>
-
-                <li class="list-inline-item">
-                    <a href="/buy-a-business" class="btn btn-primary btn-lg">Buy a business</a>
-                </li>
-            </ul>
+                    <li class="list-inline-item">
+                        <a href="/business" class="btn btn-primary btn-lg">Buy a business</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
+</header>
+<div class="container margin-bottom-40">
+
+    <div class="col-md-12 btn-block margin-bottom-40 head-home">
+        <h1 class="btn-block text-center class-montserrat margin-bottom-zero none-overflow">Categories</h1>
+        <h5 class="btn-block text-center class-montserrat subtitle-color">
+            <a href="categories.html">
+                <strong>View all <i class="fa fa-long-arrow-right"></i></strong>
+            </a>
+        </h5>
+    </div>
+
+
+
+    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 row-margin-20">
+        <a href="category/Animals.html">
+            <img class="img-responsive btn-block custom-rounded" src="public/img-category/Animals-OuR65wQQK8sGDQ2dC7JgtSSrUGbg3TI9.jpg" alt="Animals">
+        </a>
+
+        <h1 class="title-services">
+            <a href="category/Animals.html">
+                Animals (55)
+            </a>
+        </h1>
+    </div><!-- col-md-3 row-margin-20 -->
+
+
+    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 row-margin-20">
+        <a href="category/Business.html">
+            <img class="img-responsive btn-block custom-rounded" src="public/img-category/Business-7jCiREdeBHsMG6z9WLabtyxNrGZ9qDRz.jpg" alt="Business">
+        </a>
+
+        <h1 class="title-services">
+            <a href="category/Business.html">
+                Business (70)
+            </a>
+        </h1>
+    </div><!-- col-md-3 row-margin-20 -->
+
+
+    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 row-margin-20">
+        <a href="category/Charity.html">
+            <img class="img-responsive btn-block custom-rounded" src="public/img-category/Charity-m8Uvvk1cUfwN3g52rxkeBoQJKhMsEny8.jpg" alt="Charity">
+        </a>
+
+        <h1 class="title-services">
+            <a href="category/Charity.html">
+                Charity (33)
+            </a>
+        </h1>
+    </div><!-- col-md-3 row-margin-20 -->
+
+
+    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 row-margin-20">
+        <a href="category/Community.html">
+            <img class="img-responsive btn-block custom-rounded" src="public/img-category/Community-mn9Aa0M2wCUYbgHkyyFcabM3JOxMNjdP.jpg" alt="Community">
+        </a>
+
+        <h1 class="title-services">
+            <a href="category/Community.html">
+                Community (27)
+            </a>
+        </h1>
+    </div><!-- col-md-3 row-margin-20 -->
+
+
+</div><!-- container -->
+
+<div class="container body-content">
+    <div>@Html.Partial("_SubscribePartial")</div>
 </div>
-<div>@Html.Partial("_SubscribePartial")</div>

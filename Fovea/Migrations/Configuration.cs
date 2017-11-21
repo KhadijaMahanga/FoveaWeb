@@ -35,9 +35,18 @@ namespace Fovea.Migrations
                 );
             context.BusinessCategories.AddOrUpdate(
                 x => x.Id,
-                new BusinessCategory() { Id = 1, Name = "Medium-sized" },
-                new BusinessCategory() { Id = 2, Name = "Small" },
-                new BusinessCategory() { Id = 3, Name = "Micro" }
+                new BusinessCategory() { Id = 1, Name = "Automotive & Boats", Img = "Content/img/Category/automotive-boats.gif" },
+                new BusinessCategory() { Id = 2, Name = "Commercial Real Estate" , Img = "Content/img/Category/real-estate.gif" },
+                new BusinessCategory() { Id = 3, Name = "Food & Beverage", Img = "Content/img/Category/food-beverage.gif" },
+                new BusinessCategory() { Id = 4, Name = "Manufacturing", Img = "Content/img/Category/manufacturing" },
+                new BusinessCategory() { Id = 5, Name = "Recreation", Img = "Content/img/Category/recreation.gif" },
+                new BusinessCategory() { Id = 6, Name = "Retail", Img = "Content/img/Category/retail.gif" },
+                new BusinessCategory() { Id = 7, Name = "Miscellaneous", Img = "Content/img/Category/miscellaneous.gif" },
+                new BusinessCategory() { Id = 8, Name = "Services", Img = "Content/img/Category/services.gif" },
+                new BusinessCategory() { Id = 9, Name = "Technology & Media", Img = "Content/img/Category/technology-media.gif" },
+                new BusinessCategory() { Id = 10, Name = "Wholesale & Distribution", Img = "Content/img/Category/wholesale-distribution.gif" },
+                new BusinessCategory() { Id = 11, Name = "Engineering", Img = "Content/img/Category/engineering.gif" },
+                new BusinessCategory() { Id = 12, Name = "Leisure", Img = "Content/img/Category/leisure.gif" }
                 );
             context.BusinessSectors.AddOrUpdate(
                 x => x.Id,

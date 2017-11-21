@@ -13,6 +13,9 @@ namespace Fovea.Models
         public string City { get; set; }
         public decimal Price { get; set; }
         public string BusinessSectorName { get; set; }
+        public string BusinessCategoryName { get; set; }
+        public string BusinessCategoryImg { get; set; }
+        public string Description { get; set; }
         public int Likes { get; set; }
 
     }
