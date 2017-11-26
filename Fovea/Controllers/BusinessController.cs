@@ -44,5 +44,28 @@ namespace Fovea.Controllers
             return View();
         }
 
+        // GET: /Business/register-business
+        [ActionName("register-business")]
+        public ActionResult RegisterBusiness()
+        {
+            ViewBag.Categories = new SelectList(db.BusinessCategories, "Id", "Name");
+            return View();
+        }
+
+        // POST: /Business/register-business
+        [HttpPost]
+        [ActionName("register-business")]
+        public ActionResult RegisterBusiness(Business abusiness)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Businesses.Add(abusiness);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ViewBag.Categories = new SelectList(db.BusinessCategories, "Id", "Name");
+            return View(abusiness);
+        }
+
     }
 }

@@ -55,6 +55,93 @@
         </section>
     </div>
 </div>
+
+<div class="row">
+    <div class="col-md-12">
+        <section class="login-register">
+            <div class="login-block">
+                <div class="social-login-container">
+                    <button id="loginFacebookButton" class="social-login-button social-login-button-facebook c-rounded-corners5" authorizationToken="https://www.facebook.com/v2.8/dialog/oauth?client_id=597906056993680&amp;redirect_uri=http://www.gumtree.com.au/success-facebook-login.html&amp;scope=email,public_profile&amp;auth_type=rerequest&amp;display=popup&amp;state=%7B%22csrft%22%3A%22f43d5fd9667d972f5a7bdad2e3009ae6%22%2C%22nextPage%22%3A%22%2Fp-post-ad.html%22%2C%22ctk%22%3A%22drYP39yaQPCb5FN-2oN38A%22%7D">
+                        <span class="social-login-icon"><span class="c-icon c-icon-facebook"></span></span>
+                        <span class="social-login-text"><span class="login-text c-hide"><span class="link-text">Sign in with </span><span class="link">Facebook</span></span></span>
+                    </button>
+
+                    <button id="loginGoogleButton" class="social-login-button social-login-button-google c-rounded-corners5">
+                        <span class="social-login-icon"><span class="c-icon c-icon-googleplus"></span></span>
+                        <span class="social-login-text"><span class="login-text c-hide"><span class="link-text">Sign in with </span><span class="link">Google</span></span></span>
+                    </button>
+                    <div id="result"></div>
+
+                    <div id="googleLoginInfo" baseUrl="index.html"></div>
+                </div>
+                <div id="login-register" class="login-register-container clearfix">
+                    <div id="login-container" class="login-container">
+
+                        <form id="login-form" class="credential-form" action="https://www.gumtree.com.au/t-login.html" method="post">
+                            <ol class="c-unstyled">
+                                <li class="login-form__row login-form-email">
+                                    <span class="c-txtfld-medium input-validation-wrap">
+                                        <input id="login-email"
+                                               name="loginMail"
+                                               class="c-txtfld c-txtfld-fixed c-txtfld-green c-txtfld-medium"
+                                               type="email"
+                                               placeholder="Email address"
+                                               value=""
+                                               maxlength="100"
+                                               data-val="true"
+                                               data-val-required="Please enter your email address."
+                                               data-val-email="Please enter a valid email address." />
+                                    </span>
+                                    <span class="field-validation field-validation-valid field-validation--medium"
+                                          data-valmsg-for="loginMail"
+                                          data-valmsg-replace="true"></span>
+                                </li>
+
+                                <li class="login-form__row login-form-password">
+                                    <span class="c-txtfld-medium input-validation-wrap">
+                                        <input id="login-password"
+                                               name="password"
+                                               class="c-txtfld c-txtfld-fixed c-txtfld-green c-txtfld-medium"
+                                               type="password"
+                                               value=""
+                                               placeholder="Password"
+                                               maxlength="255"
+                                               data-val="true"
+                                               data-val-required="Please enter your password." />
+                                    </span>
+                                    <span class="field-validation field-validation-valid field-validation--medium"
+                                          data-valmsg-for="password"
+                                          data-valmsg-replace="true"></span>
+                                </li>
+
+                                <li class="login-form__row login-form-remember-me form-ui-checkbox">
+                                    <input id="login-rememberMe" name="rememberMe" class="form-ui-checkbox__input" checked="true" type="checkbox" value="true" /><input type="hidden" name="_rememberMe" value="on" />
+                                    <label class="checkbox-label form-ui-checkbox__label" for="login-rememberMe" role="checkbox">
+                                        Remember Me
+                                    </label>
+                                </li>
+
+                                <li class="login-form__row login-form-forgot-password c-text-right">
+                                    <a class="c-underline j-track-link" data-tracker="gtm" data-track-event="PasswordForgotten" href="t-forgot-password-form.html">
+                                        Forgot your password?
+                                    </a>
+                                </li>
+
+                                <li class="login-form-submit">
+                                    <button id="btn-submit-login" data-spinner-btn="{showOnSubmit: true}" class="c-green-button c-rounded-corners5 c-bold c-large-button c-padding-horizontal1 c-full-width c-txtfld-fixed  data-spinner-btn" type="submit">
+                                        <span>Sign In</span>
+                                    </button>
+                                </li>
+                            </ol>
+                        </form>
+                        <p class="switch-forms c-text-center"><span id="switch-form-login">Don't have an account? <a class="c-text-link">Register now</a></span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</div>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

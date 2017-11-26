@@ -21,6 +21,12 @@ namespace Fovea
                 defaults: new { controller = "Business", action = "sell-a-business" }
                // constraints: new { id = @"\d+" }
             );
+            routes.MapRoute(
+                name: "register-business",
+                url: "register-business",
+                defaults: new { controller = "Business", action = "register-business" }
+            // constraints: new { id = @"\d+" }
+            );
 
             routes.MapRoute(
                 name: "Default",

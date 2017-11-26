@@ -294,6 +294,7 @@
     <Content Include="Content\css\owl-carousel\index.html" />
     <Content Include="Content\css\owl-carousel\owl.carousel.css" />
     <Content Include="Content\css\owl-carousel\owl.video.play.html" />
+    <Content Include="Content\css\login.css" />
     <Content Include="Content\img\banner-bg.jpg" />
     <Content Include="Content\img\Category\agriculture.gif" />
     <Content Include="Content\img\Category\food.gif" />
@@ -401,6 +402,8 @@
     <Content Include="Views\Account\ForgotPasswordFailure.cshtml" />
     <Content Include="Views\Shared\_BusinessListingCard.cshtml" />
     <Content Include="Views\Business\Sell-A-Business.cshtml" />
+    <Content Include="Views\Business\Register-Business.cshtml" />
+    <Content Include="Views\Business\savelisting.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

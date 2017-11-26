@@ -1,0 +1,228 @@
+﻿
+@{
+    ViewBag.Title = "savelisting";
+}
+
+<section class="properties">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-12 col-md-12">
+                <div class="mrt20 clr"></div>
+                <h3>Listing Saved. On this page upload your images / documents &amp; select a payment method</h3>   <!-- start login form -->
+                <div class="filterContent sidebarWidget">
+                    <h3 class="borderbottom">Add Images and Documents <span style="color:#175B90; font-weight:bold;">(Optional. Come and add images to your listing anytime)</span></h3>
+                    <div class="mrt20 clr"></div>
+
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <h3 class="borderbottom">Upload Images</h3>
+                            <div id="divFile">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div style="width:100%; text-align:left;">
+                                                    <div id="previewimg" style="margin-top:15px;">
+
+                                                        <form id="imageform" name="imageform" method="post" enctype="multipart/form-data" action="https://listing.businessforsale.com/lib/files_upload/upload_frame.php">
+                                                            <span class="btn btn-success fileinput-button">
+                                                                <i class="glyphicon glyphicon-plus"></i>
+                                                                <span>Add Image...</span>
+                                                                <input type="file" name="photoimg" id="photoimg" multiple="">
+                                                                <input type="hidden" id="imglistid" name="listid" value="Mjc1NDA5M19waG90b3M=">
+                                                            </span>
+                                                        </form>
+
+
+                                                    </div>
+                                                    <div class="mrt20 clr"></div>
+
+                                                    <div id="imagePreviewOuter" style="text-align:center; color:#FF0000; font-size:14px;">
+                                                        <div class="gallery">
+
+                                                            <ul class="reorder_ul reorder-photos-list ui-sortable" id="images_preview"></ul>
+                                                        </div>
+                                                    </div>
+
+                                                    <div id="imguploadsizeid" style="display:none;padding:2px; text-align:center; color:#FF0000; font-size:14px;">
+                                                        <div class="gap_5 clr"></div>
+                                                        <b>Image size exceeds our allowed upload limit of 3 MB per image.</b>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <p class="smalltext">
+                                <span class="required"><b>* Images Note:</b></span><br>
+                                1. Please <b>Drag &amp; Drop</b> to re-arrange the images.<br>
+                                2. Maximum acceptable size per image is <b>5MB</b>.<br>
+                                3. A maximum of 5 images may be uploaded.<br>
+                                4. Kindly do not post inappropriate images.<br>
+                                5. Acceptable file types are JPG, JPEG, GIF &amp; PNG.<br>
+                                6. Kindly do not upload any images without permission of the owner of the images.<br>
+                            </p>
+                        </div>
+                        <div class="mrt20 clr"></div>
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <h3 class="borderbottom">Upload Documents</h3>
+                            <div id="divDoc">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div style="width:100%;">
+                                                    <div id="previewdoc">
+
+                                                        <form id="docform" method="post" enctype="multipart/form-data" action="https://listing.businessforsale.com/lib/files_upload/upload_frame.php">
+                                                            <span class="btn btn-success fileinput-button">
+                                                                <i class="glyphicon glyphicon-plus"></i>
+                                                                <span>Add Document...</span>
+                                                                <input type="file" name="docimg" id="docimg">
+                                                                <input type="hidden" id="doclistid" name="listid" value="Mjc1NDA5M19kb2N1bWVudHM=">
+                                                            </span>
+                                                        </form>
+
+                                                    </div>
+                                                    <div class="mrt20 clr"></div>
+                                                    <div id="docPreviewOuter" style="margin:35px 2px 0px 2px; padding:2px; text-align:center; color:#FF0000; font-size:14px;">
+
+
+                                                    </div>
+
+                                                    <div id="docuploadsizeid" style="display:none;padding:2px; text-align:center; color:#FF0000; font-size:14px;">
+                                                        <div class="gap_5 clr"></div><b>Document size exceeds our allowed upload limit of 5 MB per document.</b>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <p class="smalltext">
+                                <span class="required"><b>* Documents Note: </b></span><br>
+                                1.Documents displayed immediately only with paid listings. If added by a free trial seller, it will automatically be shown when a free trial seller upgrades at a future date.<br>
+                                2. Maximum acceptable size per document is <b>3MB</b>.<br>
+                                3. A maximum of 3 documents may be uploaded.<br>
+                                4. Acceptable file types are Word, Excel, PDF, Zip &amp; Text.<br>
+                                5. Kindly do not upload any documents without permission of the owner of the documents.<br>
+                            </p>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div><!-- end row -->
+                    <!-- end form -->
+                    <!-- end login form -->
+
+
+
+
+                    <div class="filterContent sidebarWidget">
+
+
+                        <form name="formPlan" id="formPlan" method="post" action="https://listing.businessforsale.com/post-a-business.html" onsubmit="return listingAccount();">
+
+                            <input type="hidden" name="paymentType" value="Sale">
+                            <input type="hidden" id="urlCategory" value="https://listing.businessforsale.com/">
+                            <input type="hidden" name="paymentCred" id="paymentCred" value="">
+                            <input type="hidden" name="txt_userparamdata" value="lSt2754093">
+                            <input type="hidden" name="loginuser_id" value="181126">
+                            <input type="hidden" name="productCode" value="pLuPXNlbGwz">
+                            <input type="hidden" name="listingprice" value="75.00" id="listingprice">
+                            <input type="hidden" name="imgvalues" id="imgvalues" value="">
+                            <!-- Payment Modules -->
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <h3 class="borderbottom">Featured Business Presentation</h3>
+                                    <a href="#" class="tooltip2" style="float:right; font-size:12px; margin-top:2px; text-decoration:underline; font-weight:normal;text-align:right;">What is a featured presentation? <span class="classic"><img src="/template/system/images/featured_listing_new.png"></span></a>
+                                    <div class="mrt5 clr"></div>
+                                    <p><input type="checkbox" value="featuredhome" name="featuredonhome" id="featuredonhome1" class="radio" onclick="checktheBox(featuredonhome);">&nbsp;<b>Add featured presentation </b></p>
+                                    <div class="mrt5 clr"></div>
+                                    <p class="smalltext">Feature your listing for additional exposure on BusinessForSale.com for 48 hours. A featured listing can get upto 3X the exposure of a regular listing.</p>
+                                    <div class="mrt10 clr"></div>
+                                    <h3 class="borderbottom">Payment Details</h3>
+                                    <div class="mrt20 clr"></div>
+                                    <p class="fieldsetIntro"><b>You have selected the following option:</b></p>
+                                    <table border="1" class="propertyDetails">
+                                        <tbody>
+                                            <tr>
+                                                <td><b>Package</b></td>
+                                                <td><b>Price</b></td>
+                                                <td><b>Total</b></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Unlimited Duration</td>
+                                                <td>$75.00&nbsp;USD</td>
+                                                <td>$75.00&nbsp;USD</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3" id="featuredListingID" style="display:none;">
+                                                    <table border="1" class="propertyDetails">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>Featured Presentation</td>
+                                                                <td>$20.00&nbsp;USD</td>
+                                                                <td>$20.00&nbsp;USD</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td>Sub-Total</td>
+                                                                <td><b>$95.00&nbsp;USD</b></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr></tr>
+                                        </tbody>
+                                    </table>
+                                    <p>
+                                        Upon receipt, your listing will be processed within one business day.
+                                        You will receive an e-mail confirmation as soon as your advert is live on BusinessForSale.com.
+                                    </p>
+                                    <div class="mrt20 clr"></div>
+                                    <h3 class="borderbottom">Payment Method</h3>
+                                    <div class="mrt10 clr"></div>
+                                    <span class="bold font14">
+                                        <input type="radio" checked="checked" value="BankPayment" name="paybyusing" id="paybyusing21" class="radio"> <b>Pay with a Credit Card / Paypal</b>
+                                    </span><br>
+                                    <p class="smalltext">
+                                        Use your Credit Card / Debit Card / PayPal Account to pay for your listing.<br>
+                                        <b>Save time. Checkout securely. Pay without sharing your financial information.</b>
+                                    </p>
+                                    <div class="mrt20 clr"></div>
+
+                                </div>
+
+
+
+                            </div>
+                            <div class="mrt20 clr"></div>
+
+                            <!-- end form -->
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-12">
+                                    <input type="submit" value="Continue to Payment" name="btnCompleteListing" class="buttonColor">
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+
+
+
+                </div>
+            </div><!-- end col -->
+
+        </div>
+    </div><!-- end container -->
+</section>
+
