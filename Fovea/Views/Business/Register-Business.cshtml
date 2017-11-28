@@ -1,6 +1,4 @@
-﻿@model Fovea.Models.Business
-
-@{
+﻿@{
     ViewBag.Title = "View";
 }
 <section>
@@ -8,838 +6,769 @@
         <div class="row">
             <div class="col-md-12">
                 <h2>Your Business For Sale Information</h2>
-                <form id="business-register-form" class="business-register-form" name="business-register-form" action="/register-business" method="post" enctype="multipart/form-data">
+                @using (Html.BeginForm("register-business", "Business", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
 
-                    <!--<input type="hidden" value="https://listing.businessforsale.com/" id="urlCategory">
-                    <input type="hidden" name="listingcontroller" id="listingcontroller" value="newListing">
-                    <input type="hidden" value="181126-seller-1212" id="usertypesec" name="usertypesec">
-                    <input type="hidden" value="dXNlci0xODExMjY=" id="userCategory" name="userCategory">
-                    <input type="hidden" value="pLuPXNlbGwz" id="loginuserplanid" name="loginuserplanid">
 
-                    <!-- SECTION-1 -->
-                    <div class="col-lg-12 col-md-12">
-                        <div class="filterContent sidebarWidget">
-                            <h3 class="borderbottom">Listing Details</h3>
-                            <div class="mrt20 clr"></div>
-                            <div class="row">
+                <!--<form id="business-register-form" class="business-register-form" name="business-register-form" action="/register-business" method="post" enctype="multipart/form-data">
+                   --> <fieldset>
 
-                                <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <div class="formBlock">
-                                        <label for="name">Listing Title</label><br>
-                                        <input type="text" id="bus_listingheadlines" name="bus_listingheadlines" class="formDropdown">
-                                        <p class="smalltext">This serves as primary identifier of your listing. As an example "Popular New York Italian Restaurant".</p>
+
+        <!-- SECTION-1 -->
+                        <div class="col-lg-12 col-md-12">
+                            <div class="filterContent sidebarWidget">
+                                <h3 class="borderbottom">Listing Details</h3>
+                                <div class="mrt20 clr"></div>
+                                <div class="row">
+
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <div class="formBlock">
+                                            <label for="name">Listing Title</label><br>
+                                            <input type="text" id="name" name="name" class="formDropdown">
+                                            <p class="smalltext">This serves as primary identifier of your listing. As an example "Popular New York Italian Restaurant".</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="formBlock">
-                                        <label for="name">Reference ID (Optional)</label><br>
-                                        <input type="text" name="bus_reference" id="bus_reference" class="formDropdown">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="formBlock">
-                                        <label for="name">Contact Person</label><br>
-                                        <input type="text" name="bus_contactprsn" id="bus_contactprsn" class="formDropdown">
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <div class="formBlock">
-                                        <label for="name">Listing Summary</label><br>
-                                        <textarea id="bus_summary" name="bus_summary" class="formDropdown"></textarea>
-                                        <p class="smalltext">Highlight the unique selling points of your business. Be as detailed as you prefer to disclose. </p>
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <div class="formBlock">
+                                            <label for="name">Listing Summary</label><br>
+                                            <textarea id="description" name="description" class="formDropdown"></textarea>
+                                            <p class="smalltext">Highlight the unique selling points of your business. Be as detailed as you prefer to disclose. </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- SECTION-1 -->
-                    <!-- SECTION-2 -->
-                    <div class="col-lg-12 col-md-12">
-                        <div class="filterContent sidebarWidget">
-                            <h3 class="borderbottom">Select Type of Business</h3>
-                            <div class="mrt20 clr"></div>
-                            <div class="row">
+                        <!-- SECTION-1 -->
+                        <!-- SECTION-2 -->
+                        <div class="col-lg-12 col-md-12">
+                            <div class="filterContent sidebarWidget">
+                                <h3 class="borderbottom">Select Type of Business</h3>
+                                <div class="mrt20 clr"></div>
+                                <div class="row">
 
-                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
 
-                                    <div class="business_sectors_txt_bg">
-                                        <div class="business_sectors_txt">
-                                           
-                                            <div class="row">
-                                                <div class="col-lg-12 col-md-12 col-sm-12">
-                                                    <div class="business_sectors_outer" id="showcategorydiv" style="display:none; min-height:10px;">
-                                                        <div class="business_sectors_hdr">
-                                                            <table><tbody><tr><td>Selected Business Sectors</td> <td>&nbsp;<input type="button" class="buttonColor" id="btnaddmorecategories" name="btnaddmorecategories" value="Add More Categories"></td></tr></tbody></table>
-                                                        </div>
-                                                        <div id="TextBoxesGroup"> </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="mrt20 clr"></div>
-                                            <div class="row">
-                                                <div class="col-lg-12 col-md-12 col-sm-12">
-                                                    <div class="business_sectors_outer" id="addcategorydiv">
+                                        <div class="business_sectors_txt_bg">
+                                            <div class="business_sectors_txt">
 
-                                                        <ul class="tabSmall">
-                                                            <li><a href="#browsecategory" class="buttonGrey tab current">Browse Category</a></li>
-                                                            <li><a href="#findcategory" class="buttonGrey tab">Find Category</a></li>
-
-                                                        </ul>
-
-
-                                                        <div id="browsecategory" class="sidebarWidget tabConent">
-                                                            <div class="row">
-
-                                                                <div class="col-lg-3 col-md-3 col-sm-3">
-                                                                    <div class="formBlock">
-                                                                        <label>Category</label><br>
-                                                                        <select id="bus_sector1" class="formDropdown" onchange="getSubsectorlist(this.value,'https://listing.businessforsale.com/');">
-                                                                            <option value="0">Select Category</option>
-                                                                            <option value="1">Agriculture </option>
-                                                                            <option value="2">Engineering </option>
-                                                                            <option value="3">Food </option>
-                                                                            <option value="4">Franchise Resales </option>
-                                                                            <option value="5">Leisure </option>
-                                                                            <option value="6">Manufacturing </option>
-                                                                            <option value="7">Retail </option>
-                                                                            <option value="8">Real Estate </option>
-                                                                            <option value="9">Services </option>
-                                                                            <option value="10">Tech &amp; Media </option>
-                                                                            <option value="11">Wholesale &amp; Distribution </option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-3 col-md-3 col-sm-3">
-                                                                    <div class="formBlock">
-                                                                        <label>Sub-Category</label><br>
-                                                                        <div id="subsecidDiv"> <select id="bus_subsector1" onchange="getSectorcategorylist(this.value,'https://listing.businessforsale.com/')" class="formDropdown"><option value="0">Select Sub-Category</option></select>  </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-3 col-md-3 col-sm-3">
-                                                                    <div class="formBlock">
-                                                                        <label>Sector</label><br>
-                                                                        <div id="subseccatidDiv">  <select id="bus_category1" class="formDropdown"><option value="0">Select Sector</option></select>  </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-3 col-md-3 col-sm-3">
-                                                                    <div class="formBlock">
-                                                                        <br>
-                                                                        <input type="button" class="buttonColor" name="btnaddlocations" id="addCategoryButton" value="ADD">
-                                                                    </div>
-                                                                </div>
-
+                                                <div class="row">
+                                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                                        <div class="business_sectors_outer" id="showcategorydiv" style="display:none; min-height:10px;">
+                                                            <div class="business_sectors_hdr">
+                                                                <table><tbody><tr><td>Selected Business Sectors</td> <td>&nbsp;<input type="button" class="buttonColor" id="btnaddmorecategories" name="btnaddmorecategories" value="Add More Categories"></td></tr></tbody></table>
                                                             </div>
-                                                        </div>
-
-
-                                                        <div id="findcategory" class="sidebarWidget tabConent" style="display: none;">
-
-                                                            <div class="row">
-
-                                                                <div class="col-lg-2 col-md-2 col-sm-12">
-                                                                    <div class="formBlock">
-                                                                        <p style="margin-top:10px;"><b>Please type a category</b></p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-3 col-md-3 col-sm-3">
-                                                                    <div class="formBlock">
-                                                                        <input type="text" name="report_namecat" id="report_namecat">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-2 col-md-2 col-sm-12">
-                                                                    <div class="formBlock">
-                                                                        <input type="button" class="buttonColor" name="report_submitcat" id="report_submitcat" value="Search" onclick="validatecat('report_namecat','https://listing.businessforsale.com/');">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-5 col-md-5 col-sm-5">
-                                                                    <div class="formBlock">
-
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-
-                                                                <div class="col-lg-8 col-md-8 col-sm-4">
-                                                                    <p style="font-size:12px; font-weight:bold;">Matching results will be shown below</p>
-                                                                    <div id="findCategoryResult"></div>
-                                                                </div>
-                                                            </div>
-
-
+                                                            <div id="TextBoxesGroup"> </div>
                                                         </div>
                                                     </div>
+                                                </div>
+                                                <div class="mrt20 clr"></div>
+                                                <div class="row">
+                                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                                        <div class="business_sectors_outer" id="addcategorydiv">
+
+                                                            <ul class="tabSmall">
+                                                                <li><a href="#browsecategory" class="buttonGrey tab current">Browse Category</a></li>
+                                                            </ul>
+
+
+                                                            <div id="browsecategory" class="sidebarWidget tabConent">
+                                                                <div class="row">
+
+                                                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                                                        <div class="formBlock">
+                                                                            <label>Category</label><br>
+                                                                            @Html.DropDownList("Categories", (IEnumerable<SelectListItem>)ViewBag.Categories, "Select Category", new { @class = "formDropdown" })
+                                                                            <!--<select id="BusinessCategoryId" name="BusinessCategoryId" class="formDropdown" onchange="getSubsectorlist(this.value,'https://listing.businessforsale.com/');">
+                                                                 
+                                                                            </select>-->
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                                                        <div class="formBlock">
+                                                                            <label>Sub-Category</label><br>
+                                                                            <div id="subsecidDiv"> <select id="bus_subsector1" onchange="getSectorcategorylist(this.value,'https://listing.businessforsale.com/')" class="formDropdown"><option value="0">Select Sub-Category</option></select>  </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                                                        <div class="formBlock">
+                                                                            <label>Sector</label><br>
+                                                                            <div id="subseccatidDiv">  <select id="bus_category1" class="formDropdown"><option value="0">Select Sector</option></select>  </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="clr gap_10"></div>
+                                                <div class="clr"></div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- SECTION-2 -->
+                        <!-- SECTION-3 -->
+                        <div class="col-lg-12 col-md-12">
+                            <div class="filterContent sidebarWidget">
+                                <h3 class="borderbottom">Business Location</h3>
+                                <div class="mrt20 clr"></div>
+                                <div class="row">
+
+                                    <div class="col-lg-3 col-md-3 col-sm-3">
+                                        <div class="formBlock">
+                                            <label for="name">Country</label><br>
+                                            <select name="bus_country" class="formDropdown" id="bus_country" onchange="getStateList(this.value,'https://listing.businessforsale.com/')">
+                                                <option value="0">Select Country</option>
+                                                <option value="223">United States</option>
+                                                <option disabled="disabled">United Kingdom</option>
+                                                <option value="279">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;England</option>
+                                                <option value="282">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Northern Ireland</option>
+                                                <option value="280">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Scotland</option>
+                                                <option value="281">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wales</option>
+                                                <option value="117">Ireland</option>
+                                                <option value="43">Canada</option>
+                                                <option value="14">Australia</option>
+                                                <option value="113">India</option>
+                                                <option value="219">Singapore</option>
+                                                <option value="224">South Africa</option>
+                                                <option value="252">United Arab Emirates</option>
+                                                <option value="178">New Zealand</option>
+                                                <option style="color:#000000">-----------------------------------</option>
+                                                <option value="1">Afghanistan</option>
+                                                <option value="2">Albania</option>
+                                                <option value="3">Algeria</option>
+                                                <option value="4">American Samoa</option>
+                                                <option value="5">Andorra</option>
+                                                <option value="6">Angola</option>
+                                                <option value="7">Anguilla</option>
+                                                <option value="8">Antarctica</option>
+                                                <option value="9">Antigua and Barbuda</option>
+                                                <option value="10">Argentina</option>
+                                                <option value="11">Armenia</option>
+                                                <option value="12">Aruba</option>
+                                                <option value="14">Australia</option>
+                                                <option value="15">Austria</option>
+                                                <option value="16">Azerbaijan</option>
+                                                <option value="17">Bahamas</option>
+                                                <option value="18">Bahrain</option>
+                                                <option value="20">Bangladesh</option>
+                                                <option value="21">Barbados</option>
+                                                <option value="23">Belarus</option>
+                                                <option value="24">Belgium</option>
+                                                <option value="25">Belize</option>
+                                                <option value="26">Benin</option>
+                                                <option value="27">Bermuda</option>
+                                                <option value="28">Bhutan</option>
+                                                <option value="29">Bolivia</option>
+                                                <option value="30">Bosnia and Herzegovina</option>
+                                                <option value="31">Botswana</option>
+                                                <option value="33">Brazil</option>
+                                                <option value="34">British Indian Ocean Territory</option>
+                                                <option value="35">British Virgin Islands</option>
+                                                <option value="36">Brunei Darussalam</option>
+                                                <option value="37">Bulgaria</option>
+                                                <option value="38">Burkina Faso</option>
+                                                <option value="39">Burma</option>
+                                                <option value="40">Burundi</option>
+                                                <option value="41">Cambodia</option>
+                                                <option value="42">Cameroon</option>
+                                                <option value="43">Canada</option>
+                                                <option value="44">Cape Verde</option>
+                                                <option value="45">Cayman Islands</option>
+                                                <option value="46">Central African Republic</option>
+                                                <option value="47">Chad</option>
+                                                <option value="48">Chile</option>
+                                                <option value="49">China</option>
+                                                <option value="50">Christmas Island</option>
+                                                <option value="52">Cocos (Keeling) Islands</option>
+                                                <option value="53">Colombia</option>
+                                                <option value="54">Comoros</option>
+                                                <option value="55">Congo</option>
+                                                <option value="57">Cook Islands</option>
+                                                <option value="59">Costa Rica</option>
+                                                <option value="60">Cote d'Ivoire</option>
+                                                <option value="61">Croatia</option>
+                                                <option value="62">Cuba</option>
+                                                <option value="63">Cyprus</option>
+                                                <option value="64">Czech Republic</option>
+                                                <option value="65">Denmark</option>
+                                                <option value="66">Djibouti</option>
+                                                <option value="67">Dominica</option>
+                                                <option value="68">Dominican Republic</option>
+                                                <option value="69">East Timor</option>
+                                                <option value="70">Ecuador</option>
+                                                <option value="71">Egypt</option>
+                                                <option value="72">El Salvador</option>
+                                                <option value="279">England</option>
+                                                <option value="73">Equatorial Guinea</option>
+                                                <option value="74">Eritrea</option>
+                                                <option value="75">Estonia</option>
+                                                <option value="76">Ethiopia</option>
+                                                <option value="78">Falkland Islands</option>
+                                                <option value="79">Faroe Islands</option>
+                                                <option value="80">Fiji</option>
+                                                <option value="81">Finland</option>
+                                                <option value="82">France</option>
+                                                <option value="84">French Guiana</option>
+                                                <option value="85">French Polynesia</option>
+                                                <option value="86">French Southern and Antarctic Lands</option>
+                                                <option value="87">Gabon</option>
+                                                <option value="88">Gambia</option>
+                                                <option value="283">Georgia</option>
+                                                <option value="91">Germany</option>
+                                                <option value="92">Ghana</option>
+                                                <option value="93">Gibraltar</option>
+                                                <option value="95">Greece</option>
+                                                <option value="96">Greenland</option>
+                                                <option value="97">Grenada</option>
+                                                <option value="98">Guadeloupe</option>
+                                                <option value="99">Guam</option>
+                                                <option value="100">Guatemala</option>
+                                                <option value="102">Guinea</option>
+                                                <option value="103">Guinea Bissau</option>
+                                                <option value="104">Guyana</option>
+                                                <option value="105">Haiti</option>
+                                                <option value="107">Holy See (Vatican City)</option>
+                                                <option value="108">Honduras</option>
+                                                <option value="111">Hungary</option>
+                                                <option value="112">Iceland</option>
+                                                <option value="113">India</option>
+                                                <option value="114">Indonesia</option>
+                                                <option value="115">Iran</option>
+                                                <option value="116">Iraq</option>
+                                                <option value="117">Ireland</option>
+                                                <option value="118">Israel</option>
+                                                <option value="119">Italy</option>
+                                                <option value="120">Jamaica</option>
+                                                <option value="122">Japan</option>
+                                                <option value="126">Jordan</option>
+                                                <option value="128">Kazakhstan</option>
+                                                <option value="129">Kenya</option>
+                                                <option value="131">Kiribati</option>
+                                                <option value="134">Kuwait</option>
+                                                <option value="135">Kyrgyzstan</option>
+                                                <option value="136">Laos</option>
+                                                <option value="137">Latvia</option>
+                                                <option value="138">Lebanon</option>
+                                                <option value="139">Lesotho</option>
+                                                <option value="140">Liberia</option>
+                                                <option value="141">Libya</option>
+                                                <option value="142">Liechtenstein</option>
+                                                <option value="143">Lithuania</option>
+                                                <option value="144">Luxembourg</option>
+                                                <option value="147">Madagascar</option>
+                                                <option value="148">Malawi</option>
+                                                <option value="149">Malaysia</option>
+                                                <option value="150">Maldives</option>
+                                                <option value="151">Mali</option>
+                                                <option value="152">Malta</option>
+                                                <option value="154">Marshall Islands</option>
+                                                <option value="155">Martinique</option>
+                                                <option value="156">Mauritania</option>
+                                                <option value="157">Mauritius</option>
+                                                <option value="158">Mayotte</option>
+                                                <option value="159">Mexico</option>
+                                                <option value="160">Micronesia</option>
+                                                <option value="163">Moldova</option>
+                                                <option value="164">Monaco</option>
+                                                <option value="165">Mongolia</option>
+                                                <option value="166">Montenegro</option>
+                                                <option value="167">Montserrat</option>
+                                                <option value="168">Morocco</option>
+                                                <option value="169">Mozambique</option>
+                                                <option value="170">Myanmar</option>
+                                                <option value="171">Namibia</option>
+                                                <option value="172">Nauru</option>
+                                                <option value="174">Nepal</option>
+                                                <option value="175">Netherlands</option>
+                                                <option value="176">Netherlands Antilles</option>
+                                                <option value="177">New Caledonia</option>
+                                                <option value="178">New Zealand</option>
+                                                <option value="179">Nicaragua</option>
+                                                <option value="180">Niger</option>
+                                                <option value="181">Nigeria</option>
+                                                <option value="182">Niue</option>
+                                                <option value="183">Norfolk Island</option>
+                                                <option value="132">North Korea</option>
+                                                <option value="282">Northern Ireland</option>
+                                                <option value="184">Northern Mariana Islands</option>
+                                                <option value="185">Norway</option>
+                                                <option value="186">Oman</option>
+                                                <option value="187">Pakistan</option>
+                                                <option value="188">Palau</option>
+                                                <option value="190">Panama</option>
+                                                <option value="191">Papua New Guinea</option>
+                                                <option value="193">Paraguay</option>
+                                                <option value="194">Peru</option>
+                                                <option value="195">Philippines</option>
+                                                <option value="196">Pitcairn Islands</option>
+                                                <option value="197">Poland</option>
+                                                <option value="198">Portugal</option>
+                                                <option value="199">Puerto Rico</option>
+                                                <option value="200">Qatar</option>
+                                                <option value="201">Reunion</option>
+                                                <option value="202">Romania</option>
+                                                <option value="203">Russia</option>
+                                                <option value="204">Rwanda</option>
+                                                <option value="277">Saint Barthelemy</option>
+                                                <option value="205">Saint Helena</option>
+                                                <option value="206">Saint Kitts and Nevis</option>
+                                                <option value="207">Saint Lucia</option>
+                                                <option value="278">Saint Martin</option>
+                                                <option value="208">Saint Pierre and Miquelon</option>
+                                                <option value="209">Saint Vincent and the Grenadines</option>
+                                                <option value="210">Samoa</option>
+                                                <option value="211">San Marino</option>
+                                                <option value="212">Sao Tome and Principe</option>
+                                                <option value="213">Saudi Arabia</option>
+                                                <option value="280">Scotland</option>
+                                                <option value="214">Senegal</option>
+                                                <option value="215">Serbia</option>
+                                                <option value="217">Seychelles</option>
+                                                <option value="218">Sierra Leone</option>
+                                                <option value="219">Singapore</option>
+                                                <option value="220">Slovakia</option>
+                                                <option value="221">Slovenia</option>
+                                                <option value="222">Solomon Islands</option>
+                                                <option value="276">Somalia</option>
+                                                <option value="224">South Africa</option>
+                                                <option value="133">South Korea</option>
+                                                <option value="226">Spain</option>
+                                                <option value="228">Sri Lanka</option>
+                                                <option value="229">Sudan</option>
+                                                <option value="230">Suriname</option>
+                                                <option value="231">Svalbard and Jan Mayen</option>
+                                                <option value="232">Swaziland</option>
+                                                <option value="233">Sweden</option>
+                                                <option value="234">Switzerland</option>
+                                                <option value="235">Syria</option>
+                                                <option value="236">Taiwan</option>
+                                                <option value="237">Tajikistan</option>
+                                                <option value="238">Tanzania</option>
+                                                <option value="239">Thailand</option>
+                                                <option value="240">Togo</option>
+                                                <option value="241">Tokelau</option>
+                                                <option value="242">Tonga</option>
+                                                <option value="243">Trinidad and Tobago</option>
+                                                <option value="245">Tunisia</option>
+                                                <option value="246">Turkey</option>
+                                                <option value="247">Turkmenistan</option>
+                                                <option value="248">Turks and Caicos Islands</option>
+                                                <option value="249">Tuvalu</option>
+                                                <option value="250">Uganda</option>
+                                                <option value="251">Ukraine</option>
+                                                <option value="252">United Arab Emirates</option>
+                                                <option value="223">United States</option>
+                                                <option value="256">Uruguay</option>
+                                                <option value="257">Uzbekistan</option>
+                                                <option value="258">Vanuatu</option>
+                                                <option value="259">Venezuela</option>
+                                                <option value="260">Vietnam</option>
+                                                <option value="263">Virgin Islands</option>
+                                                <option value="281">Wales</option>
+                                                <option value="265">Wallis and Futuna</option>
+                                                <option value="267">Western Sahara</option>
+                                                <option value="270">Yemen</option>
+                                                <option value="273">Zambia</option>
+                                                <option value="274">Zimbabwe</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3">
+                                        <div class="formBlock">
+                                            <label for="name">State / Region</label><br>
+                                            <select class="formDropdown" id="state" name="state" onchange="getCityList(this.value,'https://listing.businessforsale.com/')">
+                                                <option value="0">Define Location</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3">
+                                        <div class="formBlock">
+                                            <label for="name">City / County</label><br>
+                                            <select class="formDropdown" id="city" name="city">
+                                                <option value="0">Define Location</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3">
+                                        <div class="formBlock">
+                                            <label for="name">Area / Address</label><br>
+                                            <input type="text" name="bus_area" id="bus_area" class="formDropdown">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- SECTION-3 -->
+                        <!-- SECTION-4 -->
+                        <div class="col-lg-12 col-md-12">
+                            <div class="filterContent sidebarWidget">
+                                <h3 class="borderbottom">Financial Details</h3>
+                                <div class="mrt20 clr"></div>
+                                <div class="row">
+
+                                    <div class="col-lg-8 col-md-8 col-sm-8">
+
+                                        <div class="row">
+                                            <div class="col-lg-5 col-md-5 col-sm-5">
+                                                <div class="formBlock">
+                                                    <label for="name">Currency</label><br>
+                                                    <select tabindex="1" name="bus_currency" id="bus_currency" class="formDropdown"><option value="USD">US Dollars (USD)</option><option value="EUR">Euro (EUR)</option><option value="GBP">British Pounds (GBP)</option><option value="CAD">Canadian Dollars (CAD)</option><option value="AUD">Australian Dollars (AUD)</option><option value="INR">Indian Rupees (INR)</option><option value="ZAR">South African Rand (ZAR)</option><option value="AED">UAE Dirhams (AED)</option><option value="SGD">Singapore Dollars (SGD)</option><option value="NZD">New Zealand Dollars (NZD)</option><option value="JPY">Japan Yen (JPY)</option><option value="CNY">China Yuan Renminbi (CNY)</option><option value="THB">Thailand Baht (THB)</option><option value="ILS">Israeli New Shekel (NIS)</option><option value="NOK">Norwegian Krone (NOK)</option></select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2 col-sm-2">
+                                                <div class="formBlock">
+                                                    <label for="name">&nbsp;</label><br>
 
                                                 </div>
                                             </div>
+                                            <div class="col-lg-5 col-md-5 col-sm-5">
+                                                <div class="formBlock">
+                                                    <label for="name">&nbsp;</label><br>
 
-
-
-                                            <div class="clr gap_10"></div>
-                                            <div class="clr"></div>
+                                                </div>
+                                            </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-lg-5 col-md-5 col-sm-5">
+                                                <div class="formBlock">
+                                                    <label for="name">Price</label><br>
+                                                    <select tabindex="1" name="bus_askingprice" id="bus_askingprice" class="formDropdown">
+                                                        <option value="0">Select Rate</option>
+                                                        <option value="1">under 100k</option>
+                                                        <option value="2">100k - 250k</option>
+                                                        <option value="3">250k - 500k</option>
+                                                        <option value="4">500k - 1m</option>
+                                                        <option value="5">1m - 5m</option>
+                                                        <option value="6">5m &amp; Above</option>
+                                                        <option value="7">not disclosed</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2 col-sm-2">
+                                                <div class="formBlock">
+                                                    <label for="name"></label><br><span id="askOr">OR</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-5 col-md-5 col-sm-5">
+                                                <div class="formBlock">
+                                                    <label for="name">Specific Price</label><br>
+                                                    <input type="text" name="fixed_asking_price" id="fixed_asking_price" value="" class="formDropdown" maxlength="12">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-5 col-md-5 col-sm-5">
+                                                <div class="formBlock">
+                                                    <label for="name">Revenue</label><br>
+                                                    <select tabindex="1" name="bus_salesrevenue" id="bus_salesrevenue" class="formDropdown">
+                                                        <option value="0">Select Rate</option>
+                                                        <option value="1">under 100k</option>
+                                                        <option value="2">100k - 250k</option>
+                                                        <option value="3">250k - 500k</option>
+                                                        <option value="4">500k - 1m</option>
+                                                        <option value="5">1m - 5m</option>
+                                                        <option value="6">5m &amp; Above</option>
+                                                        <option value="7">not disclosed</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2 col-sm-2">
+                                                <div class="formBlock">
+                                                    <label for="name"></label><br><span id="saleOr">OR</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-5 col-md-5 col-sm-5">
+                                                <div class="formBlock">
+                                                    <label for="name">Specific Revenue</label><br>
+                                                    <input type="text" name="fixed_sales_revenue" id="fixed_sales_revenue" value="" class="formDropdown" maxlength="12">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-5 col-md-5 col-sm-5">
+                                                <div class="formBlock">
+                                                    <label for="name">Cash Flow</label><br>
+                                                    <select tabindex="1" name="bus_cashflow" id="bus_cashflow" class="formDropdown">
+                                                        <option value="0">Select Rate</option>
+                                                        <option value="1">under 100k</option>
+                                                        <option value="2">100k - 250k</option>
+                                                        <option value="3">250k - 500k</option>
+                                                        <option value="4">500k - 1m</option>
+                                                        <option value="5">1m - 5m</option>
+                                                        <option value="6">5m &amp; Above</option>
+                                                        <option value="7">not disclosed</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2 col-sm-2">
+                                                <div class="formBlock">
+                                                    <label for="name"></label><br><span id="cashOr">OR</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-5 col-md-5 col-sm-5">
+                                                <div class="formBlock">
+                                                    <label for="name">Specific Cash Flow</label><br>
+                                                    <input type="text" name="fixed_cash_flow" id="fixed_cash_flow" value="" class="formDropdown" maxlength="12">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-5 col-md-5 col-sm-5">
+                                                <div class="formBlock">
+                                                    <label for="name">Real Estate Value</label><br>
+                                                    <input type="text" class="textbox" name="bus_realestate_val" id="bus_realestate_val">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-7 col-md-7 col-sm-7">
+                                                <div class="formBlock">
+                                                    <label for="name">&nbsp;</label><br>
+                                                    <input type="checkbox" class="fl" align="middle" id="bus_is_realestate" name="bus_is_realestate">
+                                                    <span class="pl_radiobtn">Check this box if real estate is included in asking price.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-5 col-md-5 col-sm-5">
+                                                <div class="formBlock">
+                                                    <label for="name">FF&amp;E</label><br>
+                                                    <input type="text" name="bus_furniture_value" id="bus_furniture_value" class="formDropdown">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-7 col-md-7 col-sm-7">
+                                                <div class="formBlock">
+                                                    <label for="name">Is the Furniture Fixture &amp; Equipment included in the asking price?</label><br>
+                                                    <table>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td><span><input type="radio" value="1" name="bus_furniture" id="bus_furniture1">Yes</span></td>
+                                                                <td style="padding-left:10px;">
+                                                                    <span><input type="radio" value="0" name="bus_furniture" id="bus_furniture2" checked="checked">No</span>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-5 col-md-5 col-sm-5">
+                                                <div class="formBlock">
+                                                    <label for="name">Inventory / Stock</label><br>
+                                                    <input type="text" name="bus_inventory_stock_value" id="bus_inventory_stock_value" class="formDropdown">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-7 col-md-7 col-sm-7">
+                                                <div class="formBlock">
+                                                    <label for="name">Is the Inventory / Stock included in the asking price?</label><br>
+                                                    <table><tbody><tr><td><span><input type="radio" value="1" name="bus_inventory_stock" id="bus_inventory_stock1">Yes</span></td><td style="padding-left:10px;"><span><input type="radio" value="0" name="bus_inventory_stock" id="bus_inventory_stock2" checked="checked">No</span></td></tr></tbody></table>
 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <p class="smalltext">
+                                            <span class="required">Tip*</span>: We request you to key in financial figures as described below:<br>
+                                            Example: For Ten Thousand: 10000 &amp; for Hundred &amp; Fifty Thousand: 150000<br>
+                                            Kindly do not use commas or dots, they are filled by our software.
+                                        </p>
+
+                                        <p class="smalltext"><span class="required">Pricing*</span>: Provide information for latest 12 months. Buyers generally define a range to search under. If you select "Not Disclosed", your listing may not be displayed in some searches.</p>
                                     </div>
 
                                 </div>
 
                             </div>
                         </div>
-                    </div>
-                    <!-- SECTION-2 -->
-                    <!-- SECTION-3 -->
-                    <div class="col-lg-12 col-md-12">
-                        <div class="filterContent sidebarWidget">
-                            <h3 class="borderbottom">Business Location</h3>
-                            <div class="mrt20 clr"></div>
-                            <div class="row">
-
-                                <div class="col-lg-3 col-md-3 col-sm-3">
-                                    <div class="formBlock">
-                                        <label for="name">Country</label><br>
-                                        <select name="bus_country" class="formDropdown" id="bus_country" onchange="getStateList(this.value,'https://listing.businessforsale.com/')">
-                                            <option value="0">Select Country</option>
-                                            <option value="223">United States</option>
-                                            <option disabled="disabled">United Kingdom</option>
-                                            <option value="279">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;England</option>
-                                            <option value="282">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Northern Ireland</option>
-                                            <option value="280">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Scotland</option>
-                                            <option value="281">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wales</option>
-                                            <option value="117">Ireland</option>
-                                            <option value="43">Canada</option>
-                                            <option value="14">Australia</option>
-                                            <option value="113">India</option>
-                                            <option value="219">Singapore</option>
-                                            <option value="224">South Africa</option>
-                                            <option value="252">United Arab Emirates</option>
-                                            <option value="178">New Zealand</option>
-                                            <option style="color:#000000">-----------------------------------</option>
-                                            <option value="1">Afghanistan</option>
-                                            <option value="2">Albania</option>
-                                            <option value="3">Algeria</option>
-                                            <option value="4">American Samoa</option>
-                                            <option value="5">Andorra</option>
-                                            <option value="6">Angola</option>
-                                            <option value="7">Anguilla</option>
-                                            <option value="8">Antarctica</option>
-                                            <option value="9">Antigua and Barbuda</option>
-                                            <option value="10">Argentina</option>
-                                            <option value="11">Armenia</option>
-                                            <option value="12">Aruba</option>
-                                            <option value="14">Australia</option>
-                                            <option value="15">Austria</option>
-                                            <option value="16">Azerbaijan</option>
-                                            <option value="17">Bahamas</option>
-                                            <option value="18">Bahrain</option>
-                                            <option value="20">Bangladesh</option>
-                                            <option value="21">Barbados</option>
-                                            <option value="23">Belarus</option>
-                                            <option value="24">Belgium</option>
-                                            <option value="25">Belize</option>
-                                            <option value="26">Benin</option>
-                                            <option value="27">Bermuda</option>
-                                            <option value="28">Bhutan</option>
-                                            <option value="29">Bolivia</option>
-                                            <option value="30">Bosnia and Herzegovina</option>
-                                            <option value="31">Botswana</option>
-                                            <option value="33">Brazil</option>
-                                            <option value="34">British Indian Ocean Territory</option>
-                                            <option value="35">British Virgin Islands</option>
-                                            <option value="36">Brunei Darussalam</option>
-                                            <option value="37">Bulgaria</option>
-                                            <option value="38">Burkina Faso</option>
-                                            <option value="39">Burma</option>
-                                            <option value="40">Burundi</option>
-                                            <option value="41">Cambodia</option>
-                                            <option value="42">Cameroon</option>
-                                            <option value="43">Canada</option>
-                                            <option value="44">Cape Verde</option>
-                                            <option value="45">Cayman Islands</option>
-                                            <option value="46">Central African Republic</option>
-                                            <option value="47">Chad</option>
-                                            <option value="48">Chile</option>
-                                            <option value="49">China</option>
-                                            <option value="50">Christmas Island</option>
-                                            <option value="52">Cocos (Keeling) Islands</option>
-                                            <option value="53">Colombia</option>
-                                            <option value="54">Comoros</option>
-                                            <option value="55">Congo</option>
-                                            <option value="57">Cook Islands</option>
-                                            <option value="59">Costa Rica</option>
-                                            <option value="60">Cote d'Ivoire</option>
-                                            <option value="61">Croatia</option>
-                                            <option value="62">Cuba</option>
-                                            <option value="63">Cyprus</option>
-                                            <option value="64">Czech Republic</option>
-                                            <option value="65">Denmark</option>
-                                            <option value="66">Djibouti</option>
-                                            <option value="67">Dominica</option>
-                                            <option value="68">Dominican Republic</option>
-                                            <option value="69">East Timor</option>
-                                            <option value="70">Ecuador</option>
-                                            <option value="71">Egypt</option>
-                                            <option value="72">El Salvador</option>
-                                            <option value="279">England</option>
-                                            <option value="73">Equatorial Guinea</option>
-                                            <option value="74">Eritrea</option>
-                                            <option value="75">Estonia</option>
-                                            <option value="76">Ethiopia</option>
-                                            <option value="78">Falkland Islands</option>
-                                            <option value="79">Faroe Islands</option>
-                                            <option value="80">Fiji</option>
-                                            <option value="81">Finland</option>
-                                            <option value="82">France</option>
-                                            <option value="84">French Guiana</option>
-                                            <option value="85">French Polynesia</option>
-                                            <option value="86">French Southern and Antarctic Lands</option>
-                                            <option value="87">Gabon</option>
-                                            <option value="88">Gambia</option>
-                                            <option value="283">Georgia</option>
-                                            <option value="91">Germany</option>
-                                            <option value="92">Ghana</option>
-                                            <option value="93">Gibraltar</option>
-                                            <option value="95">Greece</option>
-                                            <option value="96">Greenland</option>
-                                            <option value="97">Grenada</option>
-                                            <option value="98">Guadeloupe</option>
-                                            <option value="99">Guam</option>
-                                            <option value="100">Guatemala</option>
-                                            <option value="102">Guinea</option>
-                                            <option value="103">Guinea Bissau</option>
-                                            <option value="104">Guyana</option>
-                                            <option value="105">Haiti</option>
-                                            <option value="107">Holy See (Vatican City)</option>
-                                            <option value="108">Honduras</option>
-                                            <option value="111">Hungary</option>
-                                            <option value="112">Iceland</option>
-                                            <option value="113">India</option>
-                                            <option value="114">Indonesia</option>
-                                            <option value="115">Iran</option>
-                                            <option value="116">Iraq</option>
-                                            <option value="117">Ireland</option>
-                                            <option value="118">Israel</option>
-                                            <option value="119">Italy</option>
-                                            <option value="120">Jamaica</option>
-                                            <option value="122">Japan</option>
-                                            <option value="126">Jordan</option>
-                                            <option value="128">Kazakhstan</option>
-                                            <option value="129">Kenya</option>
-                                            <option value="131">Kiribati</option>
-                                            <option value="134">Kuwait</option>
-                                            <option value="135">Kyrgyzstan</option>
-                                            <option value="136">Laos</option>
-                                            <option value="137">Latvia</option>
-                                            <option value="138">Lebanon</option>
-                                            <option value="139">Lesotho</option>
-                                            <option value="140">Liberia</option>
-                                            <option value="141">Libya</option>
-                                            <option value="142">Liechtenstein</option>
-                                            <option value="143">Lithuania</option>
-                                            <option value="144">Luxembourg</option>
-                                            <option value="147">Madagascar</option>
-                                            <option value="148">Malawi</option>
-                                            <option value="149">Malaysia</option>
-                                            <option value="150">Maldives</option>
-                                            <option value="151">Mali</option>
-                                            <option value="152">Malta</option>
-                                            <option value="154">Marshall Islands</option>
-                                            <option value="155">Martinique</option>
-                                            <option value="156">Mauritania</option>
-                                            <option value="157">Mauritius</option>
-                                            <option value="158">Mayotte</option>
-                                            <option value="159">Mexico</option>
-                                            <option value="160">Micronesia</option>
-                                            <option value="163">Moldova</option>
-                                            <option value="164">Monaco</option>
-                                            <option value="165">Mongolia</option>
-                                            <option value="166">Montenegro</option>
-                                            <option value="167">Montserrat</option>
-                                            <option value="168">Morocco</option>
-                                            <option value="169">Mozambique</option>
-                                            <option value="170">Myanmar</option>
-                                            <option value="171">Namibia</option>
-                                            <option value="172">Nauru</option>
-                                            <option value="174">Nepal</option>
-                                            <option value="175">Netherlands</option>
-                                            <option value="176">Netherlands Antilles</option>
-                                            <option value="177">New Caledonia</option>
-                                            <option value="178">New Zealand</option>
-                                            <option value="179">Nicaragua</option>
-                                            <option value="180">Niger</option>
-                                            <option value="181">Nigeria</option>
-                                            <option value="182">Niue</option>
-                                            <option value="183">Norfolk Island</option>
-                                            <option value="132">North Korea</option>
-                                            <option value="282">Northern Ireland</option>
-                                            <option value="184">Northern Mariana Islands</option>
-                                            <option value="185">Norway</option>
-                                            <option value="186">Oman</option>
-                                            <option value="187">Pakistan</option>
-                                            <option value="188">Palau</option>
-                                            <option value="190">Panama</option>
-                                            <option value="191">Papua New Guinea</option>
-                                            <option value="193">Paraguay</option>
-                                            <option value="194">Peru</option>
-                                            <option value="195">Philippines</option>
-                                            <option value="196">Pitcairn Islands</option>
-                                            <option value="197">Poland</option>
-                                            <option value="198">Portugal</option>
-                                            <option value="199">Puerto Rico</option>
-                                            <option value="200">Qatar</option>
-                                            <option value="201">Reunion</option>
-                                            <option value="202">Romania</option>
-                                            <option value="203">Russia</option>
-                                            <option value="204">Rwanda</option>
-                                            <option value="277">Saint Barthelemy</option>
-                                            <option value="205">Saint Helena</option>
-                                            <option value="206">Saint Kitts and Nevis</option>
-                                            <option value="207">Saint Lucia</option>
-                                            <option value="278">Saint Martin</option>
-                                            <option value="208">Saint Pierre and Miquelon</option>
-                                            <option value="209">Saint Vincent and the Grenadines</option>
-                                            <option value="210">Samoa</option>
-                                            <option value="211">San Marino</option>
-                                            <option value="212">Sao Tome and Principe</option>
-                                            <option value="213">Saudi Arabia</option>
-                                            <option value="280">Scotland</option>
-                                            <option value="214">Senegal</option>
-                                            <option value="215">Serbia</option>
-                                            <option value="217">Seychelles</option>
-                                            <option value="218">Sierra Leone</option>
-                                            <option value="219">Singapore</option>
-                                            <option value="220">Slovakia</option>
-                                            <option value="221">Slovenia</option>
-                                            <option value="222">Solomon Islands</option>
-                                            <option value="276">Somalia</option>
-                                            <option value="224">South Africa</option>
-                                            <option value="133">South Korea</option>
-                                            <option value="226">Spain</option>
-                                            <option value="228">Sri Lanka</option>
-                                            <option value="229">Sudan</option>
-                                            <option value="230">Suriname</option>
-                                            <option value="231">Svalbard and Jan Mayen</option>
-                                            <option value="232">Swaziland</option>
-                                            <option value="233">Sweden</option>
-                                            <option value="234">Switzerland</option>
-                                            <option value="235">Syria</option>
-                                            <option value="236">Taiwan</option>
-                                            <option value="237">Tajikistan</option>
-                                            <option value="238">Tanzania</option>
-                                            <option value="239">Thailand</option>
-                                            <option value="240">Togo</option>
-                                            <option value="241">Tokelau</option>
-                                            <option value="242">Tonga</option>
-                                            <option value="243">Trinidad and Tobago</option>
-                                            <option value="245">Tunisia</option>
-                                            <option value="246">Turkey</option>
-                                            <option value="247">Turkmenistan</option>
-                                            <option value="248">Turks and Caicos Islands</option>
-                                            <option value="249">Tuvalu</option>
-                                            <option value="250">Uganda</option>
-                                            <option value="251">Ukraine</option>
-                                            <option value="252">United Arab Emirates</option>
-                                            <option value="223">United States</option>
-                                            <option value="256">Uruguay</option>
-                                            <option value="257">Uzbekistan</option>
-                                            <option value="258">Vanuatu</option>
-                                            <option value="259">Venezuela</option>
-                                            <option value="260">Vietnam</option>
-                                            <option value="263">Virgin Islands</option>
-                                            <option value="281">Wales</option>
-                                            <option value="265">Wallis and Futuna</option>
-                                            <option value="267">Western Sahara</option>
-                                            <option value="270">Yemen</option>
-                                            <option value="273">Zambia</option>
-                                            <option value="274">Zimbabwe</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-sm-3">
-                                    <div class="formBlock">
-                                        <label for="name">State / Region</label><br>
-                                        <select class="formDropdown" id="state" name="state" onchange="getCityList(this.value,'https://listing.businessforsale.com/')">
-                                            <option value="0">Define Location</option>
-
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-sm-3">
-                                    <div class="formBlock">
-                                        <label for="name">City / County</label><br>
-                                        <select class="formDropdown" id="city" name="city">
-                                            <option value="0">Define Location</option>
-
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-sm-3">
-                                    <div class="formBlock">
-                                        <label for="name">Area / Address</label><br>
-                                        <input type="text" name="bus_area" id="bus_area" class="formDropdown">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- SECTION-3 -->
-                    <!-- SECTION-4 -->
-                    <div class="col-lg-12 col-md-12">
-                        <div class="filterContent sidebarWidget">
-                            <h3 class="borderbottom">Financial Details</h3>
-                            <div class="mrt20 clr"></div>
-                            <div class="row">
-
-                                <div class="col-lg-8 col-md-8 col-sm-8">
-
-                                    <div class="row">
-                                        <div class="col-lg-5 col-md-5 col-sm-5">
-                                            <div class="formBlock">
-                                                <label for="name">Currency</label><br>
-                                                <select tabindex="1" name="bus_currency" id="bus_currency" class="formDropdown"><option value="USD">US Dollars (USD)</option><option value="EUR">Euro (EUR)</option><option value="GBP">British Pounds (GBP)</option><option value="CAD">Canadian Dollars (CAD)</option><option value="AUD">Australian Dollars (AUD)</option><option value="INR">Indian Rupees (INR)</option><option value="ZAR">South African Rand (ZAR)</option><option value="AED">UAE Dirhams (AED)</option><option value="SGD">Singapore Dollars (SGD)</option><option value="NZD">New Zealand Dollars (NZD)</option><option value="JPY">Japan Yen (JPY)</option><option value="CNY">China Yuan Renminbi (CNY)</option><option value="THB">Thailand Baht (THB)</option><option value="ILS">Israeli New Shekel (NIS)</option><option value="NOK">Norwegian Krone (NOK)</option></select>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2 col-md-2 col-sm-2">
-                                            <div class="formBlock">
-                                                <label for="name">&nbsp;</label><br>
-
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-5 col-md-5 col-sm-5">
-                                            <div class="formBlock">
-                                                <label for="name">&nbsp;</label><br>
-
-                                            </div>
+                        <!-- SECTION-4 -->
+                        <!-- SECTION-5 -->
+                        <div class="col-lg-12 col-md-12">
+                            <div class="filterContent sidebarWidget">
+                                <h3 class="borderbottom">Further Business Details</h3>
+                                <div class="mrt20 clr"></div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="formBlock">
+                                            <label for="name">Business Location</label><br>
+                                            <textarea id="bus_location" name="bus_location" class="formDropdown" style="max-height:60px;"></textarea>
+                                            <p class="smalltext">Please describe you business location as a snapshot. For example: Main Road Facing, Residential Area on 5th Avenue, Online Store etc.</p>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-lg-5 col-md-5 col-sm-5">
-                                            <div class="formBlock">
-                                                <label for="name">Price</label><br>
-                                                <select tabindex="1" name="bus_askingprice" id="bus_askingprice" class="formDropdown">
-                                                    <option value="0">Select Rate</option>
-                                                    <option value="1">under 100k</option>
-                                                    <option value="2">100k - 250k</option>
-                                                    <option value="3">250k - 500k</option>
-                                                    <option value="4">500k - 1m</option>
-                                                    <option value="5">1m - 5m</option>
-                                                    <option value="6">5m &amp; Above</option>
-                                                    <option value="7">not disclosed</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2 col-md-2 col-sm-2">
-                                            <div class="formBlock">
-                                                <label for="name"></label><br><span id="askOr">OR</span>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-5 col-md-5 col-sm-5">
-                                            <div class="formBlock">
-                                                <label for="name">Specific Price</label><br>
-                                                <input type="text" name="fixed_asking_price" id="fixed_asking_price" value="" class="formDropdown" maxlength="12">
-                                            </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="formBlock">
+                                            <label for="name">Premise Details</label><br>
+                                            <textarea id="bus_premisese" name="bus_premisese" class="formDropdown" style="max-height:60px;"></textarea>
+                                            <p class="smalltext">Please describe you business premises, if needed.</p>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-lg-5 col-md-5 col-sm-5">
-                                            <div class="formBlock">
-                                                <label for="name">Revenue</label><br>
-                                                <select tabindex="1" name="bus_salesrevenue" id="bus_salesrevenue" class="formDropdown">
-                                                    <option value="0">Select Rate</option>
-                                                    <option value="1">under 100k</option>
-                                                    <option value="2">100k - 250k</option>
-                                                    <option value="3">250k - 500k</option>
-                                                    <option value="4">500k - 1m</option>
-                                                    <option value="5">1m - 5m</option>
-                                                    <option value="6">5m &amp; Above</option>
-                                                    <option value="7">not disclosed</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2 col-md-2 col-sm-2">
-                                            <div class="formBlock">
-                                                <label for="name"></label><br><span id="saleOr">OR</span>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-5 col-md-5 col-sm-5">
-                                            <div class="formBlock">
-                                                <label for="name">Specific Revenue</label><br>
-                                                <input type="text" name="fixed_sales_revenue" id="fixed_sales_revenue" value="" class="formDropdown" maxlength="12">
-                                            </div>
+
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="formBlock">
+                                            <label for="name">Competition</label><br>
+                                            <textarea id="bus_competition" name="bus_competition" class="formDropdown" style="max-height:60px;"></textarea>
+                                            <p class="smalltext">Please describe your business competitors, if desired.</p>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-lg-5 col-md-5 col-sm-5">
-                                            <div class="formBlock">
-                                                <label for="name">Cash Flow</label><br>
-                                                <select tabindex="1" name="bus_cashflow" id="bus_cashflow" class="formDropdown">
-                                                    <option value="0">Select Rate</option>
-                                                    <option value="1">under 100k</option>
-                                                    <option value="2">100k - 250k</option>
-                                                    <option value="3">250k - 500k</option>
-                                                    <option value="4">500k - 1m</option>
-                                                    <option value="5">1m - 5m</option>
-                                                    <option value="6">5m &amp; Above</option>
-                                                    <option value="7">not disclosed</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2 col-md-2 col-sm-2">
-                                            <div class="formBlock">
-                                                <label for="name"></label><br><span id="cashOr">OR</span>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-5 col-md-5 col-sm-5">
-                                            <div class="formBlock">
-                                                <label for="name">Specific Cash Flow</label><br>
-                                                <input type="text" name="fixed_cash_flow" id="fixed_cash_flow" value="" class="formDropdown" maxlength="12">
-                                            </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="formBlock">
+                                            <label for="name">Expansion Potential</label><br>
+                                            <textarea id="bus_expension_potential" name="bus_expension_potential" class="formDropdown" style="max-height:60px;"></textarea>
+                                            <p class="smalltext">Please describe your business expansion potential, if applicable.</p>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-lg-5 col-md-5 col-sm-5">
-                                            <div class="formBlock">
-                                                <label for="name">Real Estate Value</label><br>
-                                                <input type="text" class="textbox" name="bus_realestate_val" id="bus_realestate_val">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-7 col-md-7 col-sm-7">
-                                            <div class="formBlock">
-                                                <label for="name">&nbsp;</label><br>
-                                                <input type="checkbox" class="fl" align="middle" id="bus_is_realestate" name="bus_is_realestate">
-                                                <span class="pl_radiobtn">Check this box if real estate is included in asking price.</span>
-                                            </div>
+
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="formBlock">
+                                            <label for="name">Living Accommodation</label><br>
+                                            <table><tbody><tr><td><span><input type="radio" value="1" name="bus_living_accomodation" id="bus_living_accomodation1">Yes</span></td><td style="padding-left:10px;"><span><input type="radio" value="0" name="bus_living_accomodation" id="bus_living_accomodation2" checked="checked">No</span></td></tr></tbody></table>
+                                            <div class="mrt5 clr"></div>
+                                            <textarea id="bus_livingacco_desc" name="bus_livingacco_desc" class="formDropdown" style="max-height:60px;" placeholder="Accomodation Summary"></textarea>
+                                            <p class="smalltext">Please describe the included accommodation, if applicable.</p>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-lg-5 col-md-5 col-sm-5">
-                                            <div class="formBlock">
-                                                <label for="name">FF&amp;E</label><br>
-                                                <input type="text" name="bus_furniture_value" id="bus_furniture_value" class="formDropdown">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-7 col-md-7 col-sm-7">
-                                            <div class="formBlock">
-                                                <label for="name">Is the Furniture Fixture &amp; Equipment included in the asking price?</label><br>
-                                                <table>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td><span><input type="radio" value="1" name="bus_furniture" id="bus_furniture1">Yes</span></td>
-                                                            <td style="padding-left:10px;">
-                                                                <span><input type="radio" value="0" name="bus_furniture" id="bus_furniture2" checked="checked">No</span>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="formBlock">
+                                            <label for="name">Planning Consent</label><br>
+                                            <textarea id="bus_planningconsent" name="bus_planningconsent" class="formDropdown" style="max-height:60px;"></textarea>
+                                            <p class="smalltext">Please describe planning consents, if applicable to your business.</p>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-lg-5 col-md-5 col-sm-5">
-                                            <div class="formBlock">
-                                                <label for="name">Inventory / Stock</label><br>
-                                                <input type="text" name="bus_inventory_stock_value" id="bus_inventory_stock_value" class="formDropdown">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-7 col-md-7 col-sm-7">
-                                            <div class="formBlock">
-                                                <label for="name">Is the Inventory / Stock included in the asking price?</label><br>
-                                                <table><tbody><tr><td><span><input type="radio" value="1" name="bus_inventory_stock" id="bus_inventory_stock1">Yes</span></td><td style="padding-left:10px;"><span><input type="radio" value="0" name="bus_inventory_stock" id="bus_inventory_stock2" checked="checked">No</span></td></tr></tbody></table>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-4">
-                                    <p class="smalltext">
-                                        <span class="required">Tip*</span>: We request you to key in financial figures as described below:<br>
-                                        Example: For Ten Thousand: 10000 &amp; for Hundred &amp; Fifty Thousand: 150000<br>
-                                        Kindly do not use commas or dots, they are filled by our software.
-                                    </p>
-
-                                    <p class="smalltext"><span class="required">Pricing*</span>: Provide information for latest 12 months. Buyers generally define a range to search under. If you select "Not Disclosed", your listing may not be displayed in some searches.</p>
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </div>
-                    <!-- SECTION-4 -->
-                    <!-- SECTION-5 -->
-                    <div class="col-lg-12 col-md-12">
-                        <div class="filterContent sidebarWidget">
-                            <h3 class="borderbottom">Further Business Details</h3>
-                            <div class="mrt20 clr"></div>
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="formBlock">
-                                        <label for="name">Business Location</label><br>
-                                        <textarea id="bus_location" name="bus_location" class="formDropdown" style="max-height:60px;"></textarea>
-                                        <p class="smalltext">Please describe you business location as a snapshot. For example: Main Road Facing, Residential Area on 5th Avenue, Online Store etc.</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="formBlock">
-                                        <label for="name">Premise Details</label><br>
-                                        <textarea id="bus_premisese" name="bus_premisese" class="formDropdown" style="max-height:60px;"></textarea>
-                                        <p class="smalltext">Please describe you business premises, if needed.</p>
-                                    </div>
-                                </div>
 
 
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="formBlock">
-                                        <label for="name">Competition</label><br>
-                                        <textarea id="bus_competition" name="bus_competition" class="formDropdown" style="max-height:60px;"></textarea>
-                                        <p class="smalltext">Please describe your business competitors, if desired.</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="formBlock">
-                                        <label for="name">Expansion Potential</label><br>
-                                        <textarea id="bus_expension_potential" name="bus_expension_potential" class="formDropdown" style="max-height:60px;"></textarea>
-                                        <p class="smalltext">Please describe your business expansion potential, if applicable.</p>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="formBlock">
-                                        <label for="name">Living Accommodation</label><br>
-                                        <table><tbody><tr><td><span><input type="radio" value="1" name="bus_living_accomodation" id="bus_living_accomodation1">Yes</span></td><td style="padding-left:10px;"><span><input type="radio" value="0" name="bus_living_accomodation" id="bus_living_accomodation2" checked="checked">No</span></td></tr></tbody></table>
-                                        <div class="mrt5 clr"></div>
-                                        <textarea id="bus_livingacco_desc" name="bus_livingacco_desc" class="formDropdown" style="max-height:60px;" placeholder="Accomodation Summary"></textarea>
-                                        <p class="smalltext">Please describe the included accommodation, if applicable.</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="formBlock">
-                                        <label for="name">Planning Consent</label><br>
-                                        <textarea id="bus_planningconsent" name="bus_planningconsent" class="formDropdown" style="max-height:60px;"></textarea>
-                                        <p class="smalltext">Please describe planning consents, if applicable to your business.</p>
-                                    </div>
-                                </div>
-
-
-                            </div>
-
-
-                        </div>
-                    </div>
-                    <!-- SECTION-5 -->
-                    <!-- SECTION-6 -->
-                    <div class="col-lg-12 col-md-12">
-                        <div class="filterContent sidebarWidget">
-                            <h3 class="borderbottom">Operation Details</h3>
-                            <div class="mrt20 clr"></div>
-                            <div class="row">
-                                <div class="col-lg-4 col-md-4 col-sm-4">
-                                    <div class="formBlock">
-                                        <label for="name">Size</label><br>
-                                        <textarea id="bus_sizeinsqfeet" name="bus_sizeinsqfeet" class="formDropdown" style="max-height:60px;" placeholder="Example: 300 Sq. Mtrs or 500 Sq. Ft."></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-4">
-                                    <div class="formBlock">
-                                        <label for="name">Years Established</label><br>
-                                        <textarea id="bus_years_establsh" name="bus_years_establsh" class="formDropdown" style="max-height:60px;"></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-4">
-                                    <div class="formBlock">
-                                        <label for="name">Employees</label><br>
-                                        <textarea id="bus_employees" name="bus_employees" class="formDropdown" style="max-height:60px;"></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-4">
-                                    <div class="formBlock">
-                                        <label for="name">Trading Hours</label><br>
-                                        <textarea id="bus_tradinghour" name="bus_tradinghour" class="formDropdown" style="max-height:60px;"></textarea>
-                                        <p class="smalltext">Please describe the hours your business is open, if desired.</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-4">
-                                    <div class="formBlock">
-                                        <label for="name">Support &amp; Training</label><br>
-                                        <textarea id="bus_supportTraining" name="bus_supportTraining" class="formDropdown" style="max-height:60px;"></textarea>
-                                        <p class="smalltext">Please describe what handover support you can provide, if applicable.</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-4">
-                                    <div class="formBlock">
-                                        <label for="name">Website ( Example: www.yoursite.com )</label><br>
-                                        <textarea id="bus_website" name="bus_website" style="height:50px;" class="formDropdown"></textarea>
-                                        <p class="smalltext">Website address displayed immediately only with paid listings. If added by a free trial seller, it will automatically be shown when a free trial seller upgrades at a future date.</p>
-                                    </div>
-                                </div>
-
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <!-- SECTION-6 -->
-                    <!-- SECTION-7 -->
-                    <div class="col-lg-12 col-md-12">
-                        <div class="filterContent sidebarWidget">
-                            <h3 class="borderbottom">Miscellaneous</h3>
-                            <div class="mrt20 clr"></div>
-                            <div class="row">
-                                <div class="col-lg-1 col-md-1 col-sm-1">
-                                    <div class="formBlock">
-                                        <label for="name">Relocatable</label><br>
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <td><input type="radio" value="1" name="bus_relocatable" id="bus_relocatable1">Yes</td>
-                                                    <td style="padding-left:10px;"><input type="radio" value="0" name="bus_relocatable" checked="checked" id="bus_relocatable2">No</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-sm-3">
-                                    <div class="formBlock" style="padding-left:10px;">
-                                        <label for="name">Owner Financing Available?</label><br>
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <td><input type="radio" value="1" name="bus_fianancing_avail" id="bus_fianancing_avail1">Yes</td>
-                                                    <td style="padding-left:10px;"><input type="radio" value="0" name="bus_fianancing_avail" checked="checked" id="bus_fianancing_avail2">No</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-4">
-                                    <div class="formBlock">
-                                        <label for="name">Financing Available</label><br>
-                                        <textarea id="bus_fianancing_availDesc" name="bus_fianancing_availDesc" class="formDropdown" style="max-height:60px;"></textarea>
-                                        <p class="smalltext">Are you willing to finance the new owner partly to assist with the purchase. If yes, provide details here.</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-4">
-                                    <div class="formBlock">
-                                        <label for="name">Reason for Selling</label><br>
-                                        <textarea id="bus_reasonforsale" name="bus_reasonforsale" class="formDropdown" style="max-height:60px;"></textarea>
-                                        <p class="smalltext">Please describe the reasons that bring about this business for sale, if desired.</p>
-                                    </div>
                                 </div>
 
 
                             </div>
                         </div>
-                    </div>
-                    <!-- SECTION-7 -->
-                    <div class="mrt20 clr"></div>
-                    <div class="col-lg-12 col-md-12">
+                        <!-- SECTION-5 -->
+                        <!-- SECTION-6 -->
+                        <div class="col-lg-12 col-md-12">
+                            <div class="filterContent sidebarWidget">
+                                <h3 class="borderbottom">Operation Details</h3>
+                                <div class="mrt20 clr"></div>
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <div class="formBlock">
+                                            <label for="name">Size</label><br>
+                                            <textarea id="bus_sizeinsqfeet" name="bus_sizeinsqfeet" class="formDropdown" style="max-height:60px;" placeholder="Example: 300 Sq. Mtrs or 500 Sq. Ft."></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <div class="formBlock">
+                                            <label for="name">Years Established</label><br>
+                                            <textarea id="bus_years_establsh" name="bus_years_establsh" class="formDropdown" style="max-height:60px;"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <div class="formBlock">
+                                            <label for="name">Employees</label><br>
+                                            <textarea id="bus_employees" name="bus_employees" class="formDropdown" style="max-height:60px;"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <div class="formBlock">
+                                            <label for="name">Trading Hours</label><br>
+                                            <textarea id="bus_tradinghour" name="bus_tradinghour" class="formDropdown" style="max-height:60px;"></textarea>
+                                            <p class="smalltext">Please describe the hours your business is open, if desired.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <div class="formBlock">
+                                            <label for="name">Support &amp; Training</label><br>
+                                            <textarea id="bus_supportTraining" name="bus_supportTraining" class="formDropdown" style="max-height:60px;"></textarea>
+                                            <p class="smalltext">Please describe what handover support you can provide, if applicable.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <div class="formBlock">
+                                            <label for="name">Website ( Example: www.yoursite.com )</label><br>
+                                            <textarea id="bus_website" name="bus_website" style="height:50px;" class="formDropdown"></textarea>
+                                            <p class="smalltext">Website address displayed immediately only with paid listings. If added by a free trial seller, it will automatically be shown when a free trial seller upgrades at a future date.</p>
+                                        </div>
+                                    </div>
 
-                        <input type="checkbox" name="terms" id="terms" checked="checked"><span onclick="check('relocatable1')" class="radioLabel"> I have read and agree with the <a href="http://www.businessforsale.com/terms-conditions.html" target="_blank" title="Term and Conditions">Terms and Conditions</a> &amp; <a href="http://www.businessforsale.com/privacy-policy.html" target="_blank" title="Term and Conditions">Privacy Policy</a></span>
 
-                    </div>
-                </form>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- SECTION-6 -->
+                        <!-- SECTION-7 -->
+                        <div class="col-lg-12 col-md-12">
+                            <div class="filterContent sidebarWidget">
+                                <h3 class="borderbottom">Miscellaneous</h3>
+                                <div class="mrt20 clr"></div>
+                                <div class="row">
+                                    <div class="col-lg-1 col-md-1 col-sm-1">
+                                        <div class="formBlock">
+                                            <label for="name">Relocatable</label><br>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><input type="radio" value="1" name="bus_relocatable" id="bus_relocatable1">Yes</td>
+                                                        <td style="padding-left:10px;"><input type="radio" value="0" name="bus_relocatable" checked="checked" id="bus_relocatable2">No</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3">
+                                        <div class="formBlock" style="padding-left:10px;">
+                                            <label for="name">Owner Financing Available?</label><br>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><input type="radio" value="1" name="bus_fianancing_avail" id="bus_fianancing_avail1">Yes</td>
+                                                        <td style="padding-left:10px;"><input type="radio" value="0" name="bus_fianancing_avail" checked="checked" id="bus_fianancing_avail2">No</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <div class="formBlock">
+                                            <label for="name">Financing Available</label><br>
+                                            <textarea id="bus_fianancing_availDesc" name="bus_fianancing_availDesc" class="formDropdown" style="max-height:60px;"></textarea>
+                                            <p class="smalltext">Are you willing to finance the new owner partly to assist with the purchase. If yes, provide details here.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <div class="formBlock">
+                                            <label for="name">Reason for Selling</label><br>
+                                            <textarea id="bus_reasonforsale" name="bus_reasonforsale" class="formDropdown" style="max-height:60px;"></textarea>
+                                            <p class="smalltext">Please describe the reasons that bring about this business for sale, if desired.</p>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- SECTION-7 -->
+                        <div class="mrt20 clr"></div>
+                        <div class="col-lg-12 col-md-12">
+
+                            <input type="checkbox" name="terms" id="terms" checked="checked"><span onclick="check('relocatable1')" class="radioLabel"> I have read and agree with the <a href="http://www.businessforsale.com/terms-conditions.html" target="_blank" title="Term and Conditions">Terms and Conditions</a> &amp; <a href="http://www.businessforsale.com/privacy-policy.html" target="_blank" title="Term and Conditions">Privacy Policy</a></span>
+
+                        </div>
+                        </fieldset>
+                }
             </div>
         </div>
     </div> 
