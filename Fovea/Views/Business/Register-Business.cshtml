@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h2>Your Business For Sale Information</h2>
-                @using (Html.BeginForm("register-business", "Business", FormMethod.Post))
+                @using (Html.BeginForm("register-business", "Business", FormMethod.Post, new { @class= "business-register-form", enctype = "multipart/form-data" }))
                 {
                     @Html.AntiForgeryToken()
 
@@ -522,59 +522,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-lg-5 col-md-5 col-sm-5">
-                                                <div class="formBlock">
-                                                    <label for="name">Real Estate Value</label><br>
-                                                    <input type="text" class="textbox" name="bus_realestate_val" id="bus_realestate_val">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-7 col-md-7 col-sm-7">
-                                                <div class="formBlock">
-                                                    <label for="name">&nbsp;</label><br>
-                                                    <input type="checkbox" class="fl" align="middle" id="bus_is_realestate" name="bus_is_realestate">
-                                                    <span class="pl_radiobtn">Check this box if real estate is included in asking price.</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-5 col-md-5 col-sm-5">
-                                                <div class="formBlock">
-                                                    <label for="name">FF&amp;E</label><br>
-                                                    <input type="text" name="bus_furniture_value" id="bus_furniture_value" class="formDropdown">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-7 col-md-7 col-sm-7">
-                                                <div class="formBlock">
-                                                    <label for="name">Is the Furniture Fixture &amp; Equipment included in the asking price?</label><br>
-                                                    <table>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td><span><input type="radio" value="1" name="bus_furniture" id="bus_furniture1">Yes</span></td>
-                                                                <td style="padding-left:10px;">
-                                                                    <span><input type="radio" value="0" name="bus_furniture" id="bus_furniture2" checked="checked">No</span>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-5 col-md-5 col-sm-5">
-                                                <div class="formBlock">
-                                                    <label for="name">Inventory / Stock</label><br>
-                                                    <input type="text" name="bus_inventory_stock_value" id="bus_inventory_stock_value" class="formDropdown">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-7 col-md-7 col-sm-7">
-                                                <div class="formBlock">
-                                                    <label for="name">Is the Inventory / Stock included in the asking price?</label><br>
-                                                    <table><tbody><tr><td><span><input type="radio" value="1" name="bus_inventory_stock" id="bus_inventory_stock1">Yes</span></td><td style="padding-left:10px;"><span><input type="radio" value="0" name="bus_inventory_stock" id="bus_inventory_stock2" checked="checked">No</span></td></tr></tbody></table>
-
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <p class="smalltext">
@@ -629,31 +576,7 @@
                                             <p class="smalltext">Please describe your business expansion potential, if applicable.</p>
                                         </div>
                                     </div>
-
-
                                 </div>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <div class="formBlock">
-                                            <label for="name">Living Accommodation</label><br>
-                                            <table><tbody><tr><td><span><input type="radio" value="1" name="bus_living_accomodation" id="bus_living_accomodation1">Yes</span></td><td style="padding-left:10px;"><span><input type="radio" value="0" name="bus_living_accomodation" id="bus_living_accomodation2" checked="checked">No</span></td></tr></tbody></table>
-                                            <div class="mrt5 clr"></div>
-                                            <textarea id="bus_livingacco_desc" name="bus_livingacco_desc" class="formDropdown" style="max-height:60px;" placeholder="Accomodation Summary"></textarea>
-                                            <p class="smalltext">Please describe the included accommodation, if applicable.</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <div class="formBlock">
-                                            <label for="name">Planning Consent</label><br>
-                                            <textarea id="bus_planningconsent" name="bus_planningconsent" class="formDropdown" style="max-height:60px;"></textarea>
-                                            <p class="smalltext">Please describe planning consents, if applicable to your business.</p>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-
-
                             </div>
                         </div>
                         <!-- SECTION-5 -->
@@ -702,9 +625,6 @@
                                             <p class="smalltext">Website address displayed immediately only with paid listings. If added by a free trial seller, it will automatically be shown when a free trial seller upgrades at a future date.</p>
                                         </div>
                                     </div>
-
-
-
                                 </div>
                             </div>
                         </div>
@@ -715,48 +635,13 @@
                                 <h3 class="borderbottom">Miscellaneous</h3>
                                 <div class="mrt20 clr"></div>
                                 <div class="row">
-                                    <div class="col-lg-1 col-md-1 col-sm-1">
-                                        <div class="formBlock">
-                                            <label for="name">Relocatable</label><br>
-                                            <table>
-                                                <tbody>
-                                                    <tr>
-                                                        <td><input type="radio" value="1" name="bus_relocatable" id="bus_relocatable1">Yes</td>
-                                                        <td style="padding-left:10px;"><input type="radio" value="0" name="bus_relocatable" checked="checked" id="bus_relocatable2">No</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-3 col-sm-3">
-                                        <div class="formBlock" style="padding-left:10px;">
-                                            <label for="name">Owner Financing Available?</label><br>
-                                            <table>
-                                                <tbody>
-                                                    <tr>
-                                                        <td><input type="radio" value="1" name="bus_fianancing_avail" id="bus_fianancing_avail1">Yes</td>
-                                                        <td style="padding-left:10px;"><input type="radio" value="0" name="bus_fianancing_avail" checked="checked" id="bus_fianancing_avail2">No</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <div class="formBlock">
-                                            <label for="name">Financing Available</label><br>
-                                            <textarea id="bus_fianancing_availDesc" name="bus_fianancing_availDesc" class="formDropdown" style="max-height:60px;"></textarea>
-                                            <p class="smalltext">Are you willing to finance the new owner partly to assist with the purchase. If yes, provide details here.</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                    <div class="col-lg-8 col-md-8 col-sm-8">
                                         <div class="formBlock">
                                             <label for="name">Reason for Selling</label><br>
                                             <textarea id="bus_reasonforsale" name="bus_reasonforsale" class="formDropdown" style="max-height:60px;"></textarea>
                                             <p class="smalltext">Please describe the reasons that bring about this business for sale, if desired.</p>
                                         </div>
                                     </div>
-
-
                                 </div>
                             </div>
                         </div>

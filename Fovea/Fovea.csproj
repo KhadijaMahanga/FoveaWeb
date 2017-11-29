@@ -245,6 +245,10 @@
     <Compile Include="Migrations\201711190846392_EditCategory1.Designer.cs">
       <DependentUpon>201711190846392_EditCategory1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711290359203_OtherClasses.cs" />
+    <Compile Include="Migrations\201711290359203_OtherClasses.Designer.cs">
+      <DependentUpon>201711290359203_OtherClasses.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
@@ -253,13 +257,18 @@
     <Compile Include="Models\BusinessDetailDTO.cs" />
     <Compile Include="Models\BusinessSector.cs" />
     <Compile Include="Models\BusinessSummaryDTO.cs" />
+    <Compile Include="Models\City.cs" />
+    <Compile Include="Models\Country.cs" />
+    <Compile Include="Models\Currency.cs" />
     <Compile Include="Models\FoveaContext.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Question.cs" />
     <Compile Include="Models\Questionnare.cs" />
     <Compile Include="Models\QuestionnareResponse.cs" />
+    <Compile Include="Models\Region.cs" />
     <Compile Include="Models\Seller.cs" />
+    <Compile Include="Models\SubCategory.cs" />
     <Compile Include="Models\Subscriber.cs" />
     <Compile Include="Models\Subscription.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -424,6 +433,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711190846392_EditCategory1.resx">
       <DependentUpon>201711190846392_EditCategory1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711290359203_OtherClasses.resx">
+      <DependentUpon>201711290359203_OtherClasses.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

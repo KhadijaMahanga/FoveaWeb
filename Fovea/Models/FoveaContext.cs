@@ -21,6 +21,16 @@ namespace Fovea.Models
             //this.Database.Log = s => System.Diagnostics.Debug.WriteLine(s); 
         }
 
+        public System.Data.Entity.DbSet<Fovea.Models.City> Cities { get; set; }
+
+        public System.Data.Entity.DbSet<Fovea.Models.Country> Countries { get; set; }
+
+        public System.Data.Entity.DbSet<Fovea.Models.SubCategory> Subcategories { get; set; }
+
+        public System.Data.Entity.DbSet<Fovea.Models.Region> Regions { get; set; }
+
+        public System.Data.Entity.DbSet<Fovea.Models.Currency> Currencies { get; set; }
+
         public System.Data.Entity.DbSet<Fovea.Models.Business> Businesses { get; set; }
 
         public System.Data.Entity.DbSet<Fovea.Models.BusinessCategory> BusinessCategories { get; set; }
