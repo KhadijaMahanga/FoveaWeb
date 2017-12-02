@@ -52,7 +52,25 @@ namespace Fovea.Controllers
         public ActionResult RegisterBusiness()
         {
             ViewBag.Categories = new SelectList(db.BusinessCategories, "Id", "Name");
+            ViewBag.Countries = new SelectList(db.Countries, "Id", "Name");
             return View();
+        }
+
+        public JsonResult GetProvinces(int country) {
+            var provinces = db.Regions.Where(c => c.CountryId == country);
+            return Json(provinces, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetCities(int province)
+        {
+            var cities = db.Cities.Where(c => c.RegionId == province);
+            return Json(cities, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetSubCategories(int category)
+        {
+            var subCategories = db.Subcategories.Where(c => c.CategoryId == category);
+            return Json(subCategories, JsonRequestBehavior.AllowGet);
         }
 
         // POST: /Business/register-business

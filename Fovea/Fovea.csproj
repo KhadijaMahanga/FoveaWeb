@@ -229,25 +229,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201710050847588_InitialCreate.cs" />
-    <Compile Include="Migrations\201710050847588_InitialCreate.Designer.cs">
-      <DependentUpon>201710050847588_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711051928060_AddLikes.cs" />
-    <Compile Include="Migrations\201711051928060_AddLikes.Designer.cs">
-      <DependentUpon>201711051928060_AddLikes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711190831588_EditCategory.cs" />
-    <Compile Include="Migrations\201711190831588_EditCategory.Designer.cs">
-      <DependentUpon>201711190831588_EditCategory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711190846392_EditCategory1.cs" />
-    <Compile Include="Migrations\201711190846392_EditCategory1.Designer.cs">
-      <DependentUpon>201711190846392_EditCategory1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711290359203_OtherClasses.cs" />
-    <Compile Include="Migrations\201711290359203_OtherClasses.Designer.cs">
-      <DependentUpon>201711290359203_OtherClasses.cs</DependentUpon>
+    <Compile Include="Migrations\201712021730177_Fovea.cs" />
+    <Compile Include="Migrations\201712021730177_Fovea.Designer.cs">
+      <DependentUpon>201712021730177_Fovea.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -357,7 +341,9 @@
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -422,20 +408,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201710050847588_InitialCreate.resx">
-      <DependentUpon>201710050847588_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711051928060_AddLikes.resx">
-      <DependentUpon>201711051928060_AddLikes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711190831588_EditCategory.resx">
-      <DependentUpon>201711190831588_EditCategory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711190846392_EditCategory1.resx">
-      <DependentUpon>201711190846392_EditCategory1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711290359203_OtherClasses.resx">
-      <DependentUpon>201711290359203_OtherClasses.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712021730177_Fovea.resx">
+      <DependentUpon>201712021730177_Fovea.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

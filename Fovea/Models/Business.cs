@@ -12,10 +12,7 @@ namespace Fovea.Models
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
-        public int CountryId { get; set; }
-        public int RegionId { get; set; }
         public string Address { get; set; }
-        public int CityId { get; set; }
         public string ImageUrl { get; set; }
         public string FinancialFileUrl { get; set; }
 
@@ -23,7 +20,6 @@ namespace Fovea.Models
         public DateTime RegistrationDate { get; set; }
 
         public string RegistrationNumber { get; set; }
-        public int CurrencyId { get; set; }
         public decimal Price { get; set; }
         public decimal Revenue { get; set; }
         public decimal CashFlow { get; set; }
@@ -48,6 +44,10 @@ namespace Fovea.Models
         public int BusinessCategoryId { get; set; }
         public int BusinessSubCategory { get; set; }
         public int BusinessSectorId { get; set; }
+        public int CountryId { get; set; }
+        public int RegionId { get; set; }
+        public int CityId { get; set; }
+        public int CurrencyId { get; set; }
         //Navigation Property
         public Seller Seller { get; set; }
         public BusinessCategory BusinessCategory { get; set; }

@@ -7,13 +7,13 @@ namespace Fovea.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class OtherClasses : IMigrationMetadata
+    public sealed partial class Fovea : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(OtherClasses));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Fovea));
         
         string IMigrationMetadata.Id
         {
-            get { return "201711290359203_OtherClasses"; }
+            get { return "201712021730177_Fovea"; }
         }
         
         string IMigrationMetadata.Source
